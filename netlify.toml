@@ -1,0 +1,15 @@
+[build]
+publish = "public"
+command = "hugo"
+
+[context.production.environment]
+HUGO_VERSION = "0.41"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+
+[context.split1]
+command = "hugo --enableGitInfo"
+
+[context.split1.environment]
+HUGO_VERSION = "0.41"
+HUGO_ENV = "production"
