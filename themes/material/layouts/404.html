@@ -1,11 +1,14 @@
 {{ define "main"}}
 
 <article>
-    <header>
-        <h2>Page Not Found</h2>
+    <header class="row">
+        <h2 class="col center-align s12">Page Not Found</h2>
     </header>
-    <p>Page not found. Go back
-        <a href="{{ `/` | relLangURL }}">home</a>.</p>
+    <div class="row">
+        <h5 class="col center-align s12">Go back
+            <a href="{{ `/` | relLangURL }}">home</a>.
+        </h5>
+    </div>
 </article>
 
 {{ end }}
