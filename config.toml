@@ -1,9 +1,9 @@
 title = "Zap!"
 theme = "material"
 disqusShortname = "zapcircle"
+baseURL = "hardcore-volhard-394707.netlify.com/"
 
 #languageCode = "en-us"
-#baseURL = "example.com"
 
 copyright = "© 2018 Zap"
 
