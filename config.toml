@@ -1,0 +1,35 @@
+title = "Zap!"
+theme = "material"
+disqusShortname = "zapcircle"
+
+#languageCode = "en-us"
+#baseURL = "example.com"
+
+copyright = "© 2018 Zap"
+
+paginate = 3
+paginatePath = "page"
+
+[menu]
+  [[menu.main]]
+    url = "/"
+    name = "Home"
+    weight = 1
+
+  [[menu.main]]
+    url = "/about"
+    name = "About"
+    weight = 2
+
+[params]
+    url1 = "https://github.com/rishabhc32"
+    name1 = "RC"
+ 
+    url2 = "https://github.com/mittalprince"
+    name2 = "mittalprince"
+
+    url3 = "https://github.com/geekychaser"
+    name3 = "geekychaser"
+
+    url4 = "https://github.com/rohit3463"
+    name4 = "Rohit"

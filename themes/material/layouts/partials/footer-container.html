@@ -1,0 +1,14 @@
+<div class="row">
+    {{ if .Site.Params.footer_menus }}
+        {{ .Scratch.Set "linksCols" (add 2 (mul 2 (len .Site.Params.footer_menus) )) }}
+    {{ else }}
+        {{ .Scratch.Set "linksCols" 0 }}
+    {{ end }}
+
+    {{ $linksCols := .Scratch.Get "linksCols" }}
+    {{ $contentCols := (sub 12 $linksCols) }}
+    <div class="col s12 l{{ $contentCols }}">
+        {{ partial "footer-content" . }}
+    </div>
+</div>
+
