@@ -52,23 +52,21 @@ from the left side). Here's a code sample:
 As you probably guessed, indented 4 spaces. By the way, instead of
 indenting the block, you can use delimited blocks, if you like:
 
-~~~
+``` python
 define foobar() {
     print "Welcome to flavor country!";
 }
-~~~
+```
 
 (which makes copying & pasting easier):
-~~~python
+
+{{< highlight python3 "linenos=table">}}
 import time
-# Quick, count to ten!
+
 for i in range(10):
-    # (but not *too* quick)
     time.sleep(0.5)
-    print i
-~~~
-
-
+    print(i)
+{{< /highlight >}}
 
 ### An h3 header ###
 
