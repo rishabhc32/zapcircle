@@ -3,6 +3,11 @@ theme = "material"
 disqusShortname = "zapcircle"
 baseUrl = "https://hardcore-volhard-394707.netlify.com/"
 
+pygmentsStyle = "manni"
+pygmentsCodefences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsUseClassic = false
+
 #languageCode = "en-us"
 
 copyright = "© 2018 Zap"
