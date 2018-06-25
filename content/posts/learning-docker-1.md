@@ -176,7 +176,7 @@ We will define a `Dockerfile` for a NodeJS express server.
     npm notice created a lockfile as package-lock.json. You should commit this file.
     npm WARN docker@1.0.0 No repository field.
 
-    \+ express@4.16.3    
+    + express@4.16.3    
     ```
 3. Create file `index.js`, copy the following code into it, and save it.
 {{< highlight javascript "linenos=table, title=hello">}}
