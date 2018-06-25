@@ -5,12 +5,16 @@ body {
     min-height: 100vh;
     flex-direction: column;
     font-weight: 300;
+    font-family: 'Noto Sans', Roboto;
 }
 
 main {
     flex: 1 0 auto;
 }
 
+code {
+   font-family: 'Source Code Pro', monospace;
+}
 .max-width {
     max-width: 1280px;
     margin: 0 auto;

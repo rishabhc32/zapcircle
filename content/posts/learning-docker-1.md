@@ -42,13 +42,13 @@ After installation follow [these steps](https://docs.docker.com/install/linux/li
 
 ##### Testing Installation
 1. ###### Windows Users Only
-    `i.` Open __Kitematic(Docker Toolbox)__ or __Docker for Windows__ app, depending on your installation type.
+    __i.__ Open __Kitematic(Docker Toolbox)__ or __Docker for Windows__ app, depending on your installation type.
     <div class="row">
         <img class="responsive-img col s6" src="/images/docker1/kitematic.png">
         <img class="responsive-img col s6" src="/images/docker1/docker-windows.png">
     </div>
 
-    `ii.` In `PowerShell` command line, Run
+    __ii.__ In `PowerShell` command line, Run
     ``` powershell
     docker-machine env | Invoke-Expression
     ```
