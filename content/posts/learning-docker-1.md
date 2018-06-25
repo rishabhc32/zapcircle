@@ -142,3 +142,133 @@ If we were to write a NodeJS app, our first priority isto to install Node runtim
 With Docker, we can just grab a portable Node runtime as an base image, no installation necessary. Then our build can include the base image alongside the app code. Ensuring that our app, its dependencies and runtime, all travel together.
 
 These portable images are defined by a `Dockerfile`.
+
+### Defining a `Dockerfile`
+`Dockerfile` defines what goes on in the environment inside your container. In a `Dockerfile` we need to map the ports to outside world, specify the file we need to copy in the environment. However, after doing that, we can expect that the build of our app behaves exactly the same wherever it runs.
+
+We will define a `Dockerfile` for a NodeJS express server.
+
+1. Create an empty directory, `cd` into it and run `npm init`.
+
+    ``` bash
+    $ mkdir node-docker
+    $ cd node-docker
+    $ npm init
+
+    This utility will walk you through creating a package.json file.
+    It only covers the most common items, and tries to guess sensible defaults.
+
+    See `npm help json` for definitive documentation on these fields
+    and exactly what they do.
+
+    Press ^C at any time to quit.
+    package name: (docker)
+    version: (1.0.0)
+    description: Node docker app
+    entry point: (index.js)
+    ...
+    ```
+2. Install express.
+
+    ``` bash
+    $ npm install express
+
+    npm notice created a lockfile as package-lock.json. You should commit this file.
+    npm WARN docker@1.0.0 No repository field.
+
+    \+ express@4.16.3    
+    ```
+3. Create file `index.js`, copy the following code into it, and save it.
+{{< highlight javascript "linenos=table, title=hello">}}
+// index.js
+const express = require('express')
+
+const HOST = '0.0.0.0'
+const PORT = '8080'
+
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send("Hello, World!")
+ })
+
+app.listen(PORT, HOST);
+console.log(`Started Server on ${HOST}:${PORT}`)
+{{< /highlight >}}
+
+4. Create a file called `Dockerfile`, copy-and-paste following content into that file.
+
+    ``` dockerfile  
+    # Dockerfile
+
+    # Use NodeJS runtime as parent image 
+    FROM node:8
+
+    # Set working directory to /app
+    WORKDIR /app
+
+    # Copy required files from current directory to into container /app directory
+    ADD package*.json index.js /app/
+
+    # Install required packages
+    RUN npm install
+
+    # Make port 8080 available to world outside this container
+    EXPOSE 8080
+
+    # Start the server when container launches
+    CMD ["node", "index.js"]
+    ```
+5. Now run the build command, to create a docker image.
+    ``` bash
+    $ docker build -t node-app ./
+    $ docker image ls
+
+    REPOSITORY       TAG                 IMAGE ID
+    node-app         latest              326387cea398
+    ```
+    `-t` option is used to tag our image with a firendly name, _node-app_ in our case.
+    <br/>
+    `./` specifies path of our `Dockerfile`, which is current directory in our case.
+
+6. Run the app, mapping your machine's port 4433 to container's pusblished port 8080 using `-p`.
+    ``` bash
+    $ docker run -p 4433:8080 node-app
+
+    Started Server on 0.0.0.0:8080
+    ```
+    Go to url `http://localhost:4433` in a web browser to see your served webpage.
+    
+    If you are running Docker Toolbox on Windows, use Docker Machine's IP instead of localhost. In Docker Toolbox the container IP is behind Virtual Machine's NAT, so to get to a `localhost` port, we need to access it via Machine's IP.
+    <br/>
+
+    To get IP, run `docker-machine ip`. Now go to `http://{IP}:4433`. For example, `http://192.168.99.100:4433`
+    <div class="row">
+        <img class="responsive-img col s12" src="/images/docker1/running-node-docker.png">
+    </div>
+
+7. To run the app in background use `-d` option.
+    ``` bash
+    $ docker run -d -p 4433:8080 node-app
+    ```
+    To view logs of this container
+    ``` bash
+    $ docker container ls
+
+    CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS                    NAMES
+    f66a80cfbf45        yoyo                "node index.js"     About a minute ago   Up About a minute   0.0.0.0:4434->8080/tcp   stoic_bassi
+    
+    $ docker container logs f66a80cfbf45
+
+    Started Server on 0.0.0.0:8080
+    ```
+    To stop the container 
+    ``` bash
+    $ docker container stop f66a80cfbf45
+    ```
+> To view usage and options of a docker command, use `docker command --help`. For example, `docker image --help`
+<br/>
+> To view usage and options of `docker command command`, use `--help`. For example, `docker container logs --help`
+
+### Conclusion of part 1
+Thats all for this part. In next part we will learn how to publish our image to Docker's public registry, Docker Hub and scale our application by running this container in a __service__.
