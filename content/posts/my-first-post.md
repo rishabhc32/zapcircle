@@ -1,6 +1,7 @@
 ---
 title: "Trial Post"
 date: 2018-05-26T18:07:23+05:30
+draft: true
 author: "RC"
 ---
 
