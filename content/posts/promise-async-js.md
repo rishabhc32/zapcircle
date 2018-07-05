@@ -79,3 +79,44 @@ function handlePhoto(err, photo) {
 }
 ```
 In this case the image may take a very long time to download but our program is not blocked, waiting for image to be downloaded. When the download finishes the function `handlePhoto` is called.
+
+<br>
+### Pyramid of doom
+When a a programmer accustomed to write synchronous code, writes asynchronous in JavaScript, it leads to callback hell.
+
+Nesting of callback is called __callback hell__.
+<div class="row">
+    <img class="responsive-img col l8 offset-l2 m10 offset-m1 s10 offset-s1" src="/images/promiseAsyncJS/callback_hell_meme.jpg">
+</div>
+
+Only way to perform an action when a function finishes is inside a callback. For multiple asynchronous actions that follow one after another we will have code like this: 
+``` javascript
+loadScript('1.js', function(error, script) {
+
+  if (error) {
+    handleError(error);
+  } else {
+    // ...
+    loadScript('2.js', function(error, script) {
+      if (error) {
+        handleError(error);
+      } else {
+        // ...
+        loadScript('3.js', function(error, script) {
+          if (error) {
+            handleError(error);
+          } else {
+            // ...continue after all scripts are loaded (*)
+          }
+        });
+
+      }
+    })
+  }
+});
+```
+1. We load `1.js`.
+2. If there is no error, load `2.js`.
+3. If there is no error, load `3.js`.   
+
+As calls become more nested, the code becomes deeper and increasingly more difficult to manage. Soon it spirals out of control.
