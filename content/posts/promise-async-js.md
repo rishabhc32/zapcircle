@@ -8,7 +8,7 @@ cover_image: /images/promiseAsyncJS/cover.jpeg
 See the pyramid shape and all the `})` at the end? This is affectionately known as __callback hell__. The cause of callback hell is when people try to write JavaScript in a way where execution happens visually from top to bottom.
 <!--more-->
 
-Asynchronous JavaScript uses callbacks, nesting of callbacks results in __callback hell__. This leads to very hard-to-read code.
+Asynchronous JavaScript uses callbacks, nesting of callbacks results in __callback hell__. This leads to code, very hard to read and maintain.
 ``` javascript
 users.get(5, function(err, data){
     messges.get(data.userId, function(err, data){
@@ -37,8 +37,31 @@ The word 'Asynchronous' just means _takes some time_ or _happens in the future, 
 </div>
 
 ### What are callbacks?
+A callback function, also known as a higher-order function, is a function that is passed to another function as a parameter.
+``` javascript
+//Classic example of callback functions in basic JavaScript
+
+var Print = function(eachName, index) {
+    console.log(index + 1 + ". " + eachName) 
+}
+
+var friends = ["Mike", "Stacy", "Andy", "Rick"]
+
+friends.forEach(Print) // 1. Mike, 2. Stacy, 3. Andy, 4. Rick
+```
+> Here we pass a function to `forEach` method as parameter.
+
 Callbacks are just a convention for using JavaScript functions. Instead of immediately returing a value, a function that uses callbacks takes some time to produce result. Callbacks are used to achieve single threaded asynchronous behaviour in JavaScript.
 
 In JS, functions are first-class objects. They can be stored in variables, passed as arguments to functions, created within functions, and returned from functions.
 
-A callback function, also known as a higher-order function, is a function that is passed to another function as a parameter
+When you call a normal function you can use its return value:
+``` javascript
+function multiplyNums(a, b) {
+    return a * b
+}
+
+var ans = multiplyNums(5, 10)
+console.log(ans)
+```
+
