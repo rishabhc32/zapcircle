@@ -36,6 +36,7 @@ The word 'Asynchronous' just means _takes some time_ or _happens in the future, 
     <img class="responsive-img col l9 offset-l1 m12 s12" src="/images/promiseAsyncJS/sync2.png">
 </div>
 
+<br>
 ### What are callbacks?
 A callback function, also known as a higher-order function, is a function that is passed to another function as a parameter.
 ``` javascript
@@ -64,4 +65,17 @@ function multiplyNums(a, b) {
 var ans = multiplyNums(5, 10)
 console.log(ans)
 ```
+<br>
+Howerver a function that are async and use callback does not return anything immediately. Instead you specify the code that should run after the function execution has finished. 
+``` javascript
+downloadPhoto('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg', handlePhoto)
+// handlePhoto is passed as callback
 
+function handlePhoto(err, photo) {
+    if(err)
+        console.log('Error occured!')
+    else
+        console.log('Download finished')
+}
+```
+In this case the image may take a very long time to download but our program is not blocked, waiting for image to be downloaded. When the download finishes the function `handlePhoto` is called.
