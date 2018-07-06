@@ -156,3 +156,44 @@ Initally the promise is in __pending__ state. Executor initiates some async work
 > A promise is said to be __settled__ if it is either fulfilled or rejected, but not pending.
 
 #### Creating a promise
+`Promise` object is created using the `new` keyword and promise constructor. This constructor take a 'executor function' as argument. This function should have two parameters, first of these a `resolve` function. The second, a `reject` function.
+
+Consumer functions `.then` and `.catch` can be registered to receive the result or error. The first argument of `then` is a function that runs when promise is resolved and receives the result. The second argument is the function which runs when promise is rejected and receives the error.
+``` javascript
+let promise = new Promise((resolve, reject) => {
+    console.log('Initial')
+
+    resolve()
+})
+
+promise.then(() => {
+    console.log("first then")
+}, () => {
+    console.log('Error')
+})
+```
+<div class="row">
+    <img class="responsive-img" src="/images/promiseAsyncJS/promise-output.png">
+</div>
+The executor is executed and promise is in pending state. When the promise is resolved the first function of `.then` is executed.
+
+> In case of rejection the second function will be executed.
+
+For handling errors we can also use `.catch`. Which is same as `.then(null, errorHandlingFunction)`.
+``` javascript
+let promise = new Promise((resolve, reject) => {
+    console.log('Initial')
+
+    reject(new Error('200'))
+})
+
+promise.then(() => {
+    console.log("first then")
+}).catch((arg) => {
+    console.log(`Error: ${arg}`)
+})
+
+//Shows 'Initial' then 'Error: 200' as output
+```
+
+#### Promise Chaining
