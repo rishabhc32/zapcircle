@@ -267,3 +267,91 @@ doAsync1.then(function() {
 ```
 
 #### Promise API
+##### Promise.resolve()
+Returns a promise object resolved with given value. The method is used when we already have a value, but would like to have it “wrapped” into a promise.
+``` javascript
+let promise = Promise.resolve(value)
+```
+
+Example:
+``` javascript
+// Using the static Promise.resolve method
+Promise.resolve('Success').then(function(value) {
+  console.log(value); // "Success"
+}, function(value) {
+  // not called
+});
+
+// Resolving an array
+var p = Promise.resolve([1,2,3]);
+p.then(function(v) {
+  console.log(v[0]); // 1
+});
+```
+
+> Further read: [MDN Promise.resolve()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)
+
+<br>
+##### Promise.reject()
+The `Promise.reject(reason)` method returns a Promise object that is rejected with the given reason.
+``` javascript
+let promise = Promise.reject(error);
+```
+
+> Further read: [MDN Promise.reject()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)
+
+<br>
+##### Promise.all()
+The `Promise.all(iterable)` returns a single Promise that resolves when all of the promises in the `iterable` argument have resolved. It rejects with the reason of the first promise that rejects.
+``` javascript
+let promise = Promise.all(iterable)
+```
+The returned promise resolves when all of the promises are settled and has an array of their results.
+If any of the passed-in promises reject, Promise.all asynchronously rejects the promise, whether or not the other promises have resolved.
+
+Example:
+``` javascript
+var promise1 = Promise.resolve(1);
+var promise2 = Promise.resolve(2);
+var promise3 = new Promise(function(resolve, reject) {
+  setTimeout(resolve, 100, 'Hello, World!');
+});
+
+Promise.all([promise1, promise2, promise3])
+.then((result) => {
+    console.log(result)
+})
+
+// Output: Array [1, 2, "Hello, World!"]
+```
+
+> 
+* If an empty iterable is passed, then this method returns (synchronously) an already resolved promise.
+* If all of the passed-in promises fulfill, or are not promises, the promise returned by `Promise.all` is fulfilled asynchronously.
+
+A common trick is to map an array of jobs into an array of promises, and then wrap that into `Promise.all()`.
+
+For example, we can fetch array of URLs in following way:
+```javascript
+const fetch = require('node-fetch')
+
+let UserNames = ['rishabhc32', 'mittalprince', 'geekychaser']
+let req = UserNames.map(name => fetch(`https://api.github.com/users/${name}`))
+// 'fetch' returns a 'Promise<response>' for URL passed in argument
+
+console.log(req)
+
+Promise.all(req)
+.then((result) => {
+    result.forEach( (element) => {
+        console.log(`${element.url}: ${element.status}`)
+    })
+})
+```
+
+<div class="row">
+    <img class="responsive-img" src="/images/promiseAsyncJS/promise-all-fetch.png">
+</div>
+
+<br>
+##### Promise.race()
