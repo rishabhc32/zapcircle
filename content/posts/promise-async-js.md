@@ -386,3 +386,35 @@ Promise.race([promise1, promise2]).then(function(value) {
 
 <br>
 ##### Promise.finally() 
+The `Promise.finally()` return a `Promise` when the promise is settled, regardless of its outcome.
+``` javascript
+let p = new Promise( ... )
+p.finally(function() {
+    // settled (fulfilled or rejected)
+}) 
+```
+The callback specified in `Promise.finally` is always executed when the promise is settled(resolved or rejected). The `finally()` method can be useful if you want to do some processing or cleanup once the promise is settled.
+
+Example:
+``` javascript
+let p = Promise.reject('hello')
+
+p.then(() => {
+    console.log('Resolved')
+})    
+p.catch(() => {
+    console.log('Error')
+})
+p.finally(() => {
+    console.log(`Finally`)
+})
+
+Ouput: 
+> "Error"
+> "Finally"
+```
+
+> Further read:
+> 
+* [MDN Promise.finally()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally)
+* [Google Web dev](https://developers.google.com/web/updates/2017/10/promise-finally)
