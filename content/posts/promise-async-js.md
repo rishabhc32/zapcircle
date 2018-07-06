@@ -1,5 +1,5 @@
 ---
-title: "Promises, Async/Await in JS"
+title: "Promises in JS"
 date: 2018-07-05T00:12:17+05:30
 draft: true
 author: "RC"
@@ -378,7 +378,7 @@ Output:
 > https://github.com/rishabhc32: 200
 > Error: Only absolute URLs are supported
 ```
-This wait until all promises are settled.
+This will wait until all promises are settled.
 
 <br>
 ##### Promise.race()
@@ -444,3 +444,7 @@ Ouput:
 > 
 * [MDN Promise.finally()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally)
 * [Google Web dev](https://developers.google.com/web/updates/2017/10/promise-finally)
+
+<br>
+### Next up
+Async/await in JavaScript.
