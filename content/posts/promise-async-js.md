@@ -175,6 +175,7 @@ promise.then(() => {
 <div class="row">
     <img class="responsive-img" src="/images/promiseAsyncJS/promise-output.png">
 </div>
+
 The executor is executed and promise is in pending state. When the promise is resolved the first function of `.then` is executed.
 
 > In case of rejection the second function will be executed.
@@ -197,3 +198,72 @@ promise.then(() => {
 ```
 
 #### Promise Chaining
+A common need is to execute two or more asynchronous functions one after the other, where each subsequent operation start when the previous is succeeds. This can be accomplish via __promise chaining__.
+
+The `then()` return a new promise, therefore execution is suspended util the promise is resolved. After that the result of that promise is is given to next `then()`.
+``` javascript
+var f = function() {
+  return new Promise((resolve, reject) => {
+    console.log('First')
+    resolve('200')
+  })
+}
+
+var f1 = function(arg) {
+  return new Promise((resolve, reject) => {
+    console.log('Second')
+    resolve(arg)
+  })
+}
+
+var f2 = function(arg) {
+  return new Promise((resolve, reject) => {
+    console.log('Third')
+    resolve(arg)
+  })
+}
+
+f().then((result) => {
+  return f1(result)
+}) 
+.then((result) => {
+  return f2(result)
+})
+.then((result) => {
+  console.log(result)
+})
+
+```
+* `f1()` is called when `f()` finishes execution
+* `f2()` is called when `f1()` finishes execution
+* Order of execution: `f()->f1()->f2()`
+
+<div class="row">
+    <img class="responsive-img" src="/images/promiseAsyncJS/promise-chain.png">
+</div>
+
+<br>
+Promise chaining helps in avoiding 'callback hell' or 'pyramid of doom'. 
+```javascript
+doAsync1(function () {
+    doAsync2(function () {
+        doAsync3(function () {
+        })
+    })
+)}
+```
+We can attach our callbacks to resolved promise, forming a promise chain.
+``` javascript
+doAsync1.then(function() {
+  return doAsync2()
+})
+.then(function() {
+  return doAsync3()
+})
+.then(function() {
+  console.log('Got the final result')
+})
+.catch(failureCallback);
+```
+
+#### Promise API
