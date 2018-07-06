@@ -20,7 +20,7 @@ users.get(5, function(err, data){
 ```
 
 ### Sync vs Async
-In Synchronous programming second line of code cannot execute until the previous line has finished its execution. If you are reading a file from database the main thread will be blocked until the file is read, which means no other operation can be done in meantime. 
+In Synchronous programming, the second line of code cannot execute until the previous line has finished its execution. If you are reading a file from database the main thread will be blocked until the file is read, which means no other operation can be done in meantime. 
 <br>
 To solve this you have to manage threads manually.
 <div class="row">
@@ -29,7 +29,7 @@ To solve this you have to manage threads manually.
 
 > Asynchronous I/O is a form of input/output processing that permits other processing to continue before the transmission has finished.
 
-In Asynchronous programming a unit of work can run separately from the primary thread. When the work is completed, it notifies the main thread whether the work was completed or failed.
+In Asynchronous programming, a unit of work can run separately from the primary thread. When the work is completed, it notifies the main thread whether the work was completed or failed.
 
 The word 'Asynchronous' just means _takes some time_ or _happens in the future, not right now_. 
 <div class="row">
@@ -52,7 +52,7 @@ friends.forEach(Print) // 1. Mike, 2. Stacy, 3. Andy, 4. Rick
 ```
 > Here we pass a function to `forEach` method as parameter.
 
-Callbacks are just a convention for using JavaScript functions. Instead of immediately returing a value, a function that uses callbacks takes some time to produce result. Callbacks are used to achieve single threaded asynchronous behaviour in JavaScript.
+Callbacks are just a convention for using JavaScript functions. Instead of immediately returing a value, a function that uses callbacks takes some time to produce the result. Callbacks are used to achieve single-threaded asynchronous behavior in JavaScript.
 
 In JS, functions are first-class objects. They can be stored in variables, passed as arguments to functions, created within functions, and returned from functions.
 
@@ -66,7 +66,7 @@ var ans = multiplyNums(5, 10)
 console.log(ans)
 ```
 <br>
-Howerver a function that are async and use callback does not return anything immediately. Instead you specify the code that should run after the function execution has finished. 
+A function that is async and uses callback does not return anything immediately. Instead, you specify the code that should run after the function execution has finished. 
 ``` javascript
 downloadPhoto('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg', handlePhoto)
 // handlePhoto is passed as callback
@@ -78,18 +78,18 @@ function handlePhoto(err, photo) {
         console.log('Download finished')
 }
 ```
-In this case the image may take a very long time to download but our program is not blocked, waiting for image to be downloaded. When the download finishes the function `handlePhoto` is called.
+In this case, the image may take a very long time to download but our program is not blocked, waiting for the image to be downloaded. When the download finishes the function `handlePhoto` is called.
 
 <br>
-### Pyramid of doom
-When a a programmer accustomed to write synchronous code, writes asynchronous in JavaScript, it leads to callback hell.
+### Pyramid of Doom
+When a programmer accustomed to writing synchronous code, writes asynchronous in JavaScript, it leads to callback hell.
 
 Nesting of callback is called __callback hell__.
 <div class="row">
     <img class="responsive-img col l8 offset-l2 m10 offset-m1 s10 offset-s1" src="/images/promiseAsyncJS/callback_hell_meme.jpg">
 </div>
 
-Only way to perform an action when a function finishes is inside a callback. For multiple asynchronous actions that follow one after another we will have code like this: 
+The only way to perform an action when a function finishes is inside a callback. For multiple asynchronous actions that follow one after another we will have code like this: 
 ``` javascript
 loadScript('1.js', function(error, script) {
 
@@ -125,9 +125,9 @@ As calls become more nested, the code becomes deeper and increasingly more diffi
 ### Promises
 > A `Promise` is an object representing the eventual completion or failure of an asynchronous operation.
 
-A `Promise` object represents a value that that may not be available but resolved at some time in future. It allows you to write asynchronous code in a more synchronous fashion.
+A `Promise` object represents a value that may not be available but resolved at some time in future. It allows you to write asynchronous code in a more synchronous fashion.
 
-Essentially, promise is a returned object to which you attach callback, instead of passing callbacks into a function. The core idea behind promises is that, it represents the result of an asynchronous operation.
+Essentially, a promise is a returned object to which you attach callback, instead of passing callbacks into a function. The core idea behind promises is that it represents the result of an asynchronous operation.
 
 Promise is in one of three different states.
 
@@ -145,13 +145,13 @@ let promise = new Promise(function(resolve, reject) {
     //executor
 })
 ```
-The function passed to `Promise` constructor is called executor. When promise is created the executor executes automatically. The `resolve` and `reject` functions are called when the promise resolve or reject, respectively. 
+The function passed to `Promise` constructor is called executor. When a promise is created the executor executes automatically. The `resolve` and `reject` functions are called when the promise resolve or reject, respectively. 
 
 <div class="row">
     <img class="responsive-img col l10 offset-l1 m10 offset-m1 s12" src="/images/promiseAsyncJS/promise-resolve-reject.png">
 </div>
 
-Initally the promise is in __pending__ state. Executor initiates some async work, once that completes it either calls `resolve` to __resolve__ the promise or `reject` if an error occurred. 
+Initially, the promise is in __pending__ state. Executor initiates some async work, once that completes it either calls `resolve` to __resolve__ the promise or `reject` if an error occurred. 
 
 <div class="row">
     <img class="responsive-img col l10 offset-l1 m10 offset-m1 s12" src="/images/promiseAsyncJS/promise-settled.png">
@@ -160,9 +160,9 @@ Initally the promise is in __pending__ state. Executor initiates some async work
 > A promise is said to be __settled__ if it is either fulfilled or rejected, but not pending.
 
 #### Creating a promise
-`Promise` object is created using the `new` keyword and promise constructor. This constructor take a 'executor function' as argument. This function should have two parameters, first of these a `resolve` function. The second, a `reject` function.
+`Promise` object is created using the `new` keyword and promise constructor. This constructor takes an 'executor function' as an argument. This function should have two parameters, first of these a `resolve` function. The second, a `reject` function.
 
-Consumer functions `.then` and `.catch` can be registered to receive the result or error. The first argument of `then` is a function that runs when promise is resolved and receives the result. The second argument is the function which runs when promise is rejected and receives the error.
+Consumer functions `.then` and `.catch` can be registered to receive the result or error. The first argument of `then` is a function that runs when the promise is resolved and receives the result. The second argument is the function which runs when the promise is rejected and receives the error.
 ``` javascript
 let promise = new Promise((resolve, reject) => {
     console.log('Initial')
@@ -182,9 +182,9 @@ promise.then(() => {
 
 The executor is executed and promise is in pending state. When the promise is resolved the first function of `.then` is executed.
 
-> In case of rejection the second function will be executed.
+> In case of rejection, the second function will be executed.
 
-For handling errors we can also use `.catch`. Which is same as `.then(null, errorHandlingFunction)`.
+For handling errors, we can also use `.catch`. Which is same as `.then(null, errorHandlingFunction)`.
 ``` javascript
 let promise = new Promise((resolve, reject) => {
     console.log('Initial')
@@ -202,9 +202,9 @@ promise.then(() => {
 ```
 
 #### Promise Chaining
-A common need is to execute two or more asynchronous functions one after the other, where each subsequent operation start when the previous is succeeds. This can be accomplish via __promise chaining__.
+A common need is to execute two or more asynchronous functions one after the other, where each subsequent operation start when the previous is succeeds. This can be accomplished via __promise chaining__.
 
-The `then()` return a new promise, therefore execution is suspended util the promise is resolved. After that the result of that promise is is given to next `then()`.
+The `then()` return a new promise, therefore execution is suspended until the promise is resolved. After that, the result of that promise is given to next `then()`.
 ``` javascript
 var f = function() {
   return new Promise((resolve, reject) => {
@@ -272,7 +272,7 @@ doAsync1.then(function() {
 
 #### Promise API
 ##### Promise.resolve()
-Returns a promise object resolved with given value. The method is used when we already have a value, but would like to have it “wrapped” into a promise.
+Returns a promise object resolved with given value. The method is used when we already have a value but would like to have it “wrapped” into a promise.
 ``` javascript
 let promise = Promise.resolve(value)
 ```
@@ -293,7 +293,7 @@ p.then(function(v) {
 });
 ```
 
-> Further read: [MDN Promise.resolve()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)
+> Further reading: [MDN Promise.resolve()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)
 
 <br>
 ##### Promise.reject()
@@ -302,7 +302,7 @@ The `Promise.reject(reason)` method returns a Promise object that is rejected wi
 let promise = Promise.reject(error);
 ```
 
-> Further read: [MDN Promise.reject()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)
+> Further reading: [MDN Promise.reject()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)
 
 <br>
 ##### Promise.all()
@@ -331,11 +331,11 @@ Promise.all([promise1, promise2, promise3])
 
 > 
 * If an empty iterable is passed, then this method returns (synchronously) an already resolved promise.
-* If all of the passed-in promises fulfill, or are not promises, the promise returned by `Promise.all` is fulfilled asynchronously.
+* If all of the passed-in promises fulfill or are not promises, the promise returned by `Promise.all` is fulfilled asynchronously.
 
 A common trick is to map an array of jobs into an array of promises, and then wrap that into `Promise.all()`.
 
-For example, we can fetch array of URLs in following way:
+For example, we can fetch an array of URLs in the following way:
 ``` javascript
 const fetch = require('node-fetch')
 
@@ -360,7 +360,7 @@ Promise.all(req)
 ##### Fail-safe Promise.all()
 `Promise.all` is rejected if any of the elements are rejected. For example, if you pass in three promises and one promise rejects immediately, then `Promise.all` will reject immediately.
 
-It is possible to change this behaviour by handling possible rejections:
+It is possible to change this behavior by handling possible rejections:
 ``` javascript
 var url = 'https://github.com/rishabhc32'
 
@@ -405,7 +405,7 @@ Promise.race([promise1, promise2]).then(function(value) {
 
 // Output: "Second"
 ```
-> Further read: [MDN Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
+> Further reading: [MDN Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
 
 <br>
 ##### Promise.finally() 
@@ -433,17 +433,17 @@ p.finally(() => {
 })
 ```
 ```
-Ouput: 
+Output: 
 > "Error"
 > "Finally"
 ```
 
 > `Promise.finally()` is part of ECMAScript specification but not yet included in NodeJS. It is only a matter of time before it lands in Node.js.
 >
-> Further read:
+> Further reading:
 > 
 * [MDN Promise.finally()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally)
-* [Google Web dev](https://developers.google.com/web/updates/2017/10/promise-finally)
+* [Google Web Dev](https://developers.google.com/web/updates/2017/10/promise-finally)
 
 <br>
 ### Next up
