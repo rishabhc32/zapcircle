@@ -153,6 +153,10 @@ The function passed to `Promise` constructor is called executor. When promise is
 
 Initally the promise is in __pending__ state. Executor initiates some async work, once that completes it either calls `resolve` to __resolve__ the promise or `reject` if an error occurred. 
 
+<div class="row">
+    <img class="responsive-img col l10 offset-l1 m10 offset-m1 s12" src="/images/promiseAsyncJS/promise-settled.png">
+</div>
+
 > A promise is said to be __settled__ if it is either fulfilled or rejected, but not pending.
 
 #### Creating a promise
