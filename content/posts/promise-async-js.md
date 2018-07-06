@@ -413,7 +413,8 @@ Ouput:
 > "Error"
 > "Finally"
 ```
-
+> `Promis.finally()` is part of ECMAScript specification but not yet included in NodeJS. It is only a matter of time before it lands in Node.js.
+>
 > Further read:
 > 
 * [MDN Promise.finally()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally)
