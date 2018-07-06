@@ -357,6 +357,29 @@ Promise.all(req)
     <img class="responsive-img" src="/images/promiseAsyncJS/promise-all-fetch.png">
 </div>
 
+##### Fail-safe Promise.all()
+`Promise.all` is rejected if any of the elements are rejected. For example, if you pass in three promises and one promise rejects immediately, then `Promise.all` will reject immediately.
+
+It is possible to change this behaviour by handling possible rejections:
+``` javascript
+var url = 'https://github.com/rishabhc32'
+
+Promise.all([
+    fetch(url), 
+    fetch('malformed-url').catch(error => {return error}) 
+])
+.then(response => { 
+  console.log(`${url}: ${response[0].status}`)
+  console.log(`Error: ${response[1].message}`)
+})
+```
+```
+Output:
+> https://github.com/rishabhc32: 200
+> Error: Only absolute URLs are supported
+```
+This wait until all promises are settled.
+
 <br>
 ##### Promise.race()
 The `Promise.race(iterable)` method returns a promise that resolves or rejects as soon as one of the promises in the `iterable` resolves or rejects. 
