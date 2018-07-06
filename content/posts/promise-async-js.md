@@ -332,7 +332,7 @@ Promise.all([promise1, promise2, promise3])
 A common trick is to map an array of jobs into an array of promises, and then wrap that into `Promise.all()`.
 
 For example, we can fetch array of URLs in following way:
-```javascript
+``` javascript
 const fetch = require('node-fetch')
 
 let UserNames = ['rishabhc32', 'mittalprince', 'geekychaser']
@@ -355,3 +355,30 @@ Promise.all(req)
 
 <br>
 ##### Promise.race()
+The `Promise.race(iterable)` method returns a promise that resolves or rejects as soon as one of the promises in the `iterable` resolves or rejects. 
+``` javascript
+let promise = Promise.race(iterable);
+```
+The first result/error becomes the result of the whole `Promise.race`. All further results from resolved promises are ignored.
+
+Example:
+``` javascript
+var promise1 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 500, 'First');
+})
+
+var promise2 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 100, 'Second');
+})
+
+Promise.race([promise1, promise2]).then(function(value) {
+  console.log(value);
+  // Both resolve, but promise2 is faster
+})
+
+// Output: "Second"
+```
+> Further read: [MDN Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
+
+<br>
+##### Promise.finally() 
