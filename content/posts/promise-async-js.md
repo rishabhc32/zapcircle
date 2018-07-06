@@ -120,3 +120,39 @@ loadScript('1.js', function(error, script) {
 3. If there is no error, load `3.js`.   
 
 As calls become more nested, the code becomes deeper and increasingly more difficult to manage. Soon it spirals out of control.
+
+<br>
+### Promises
+> A `Promise` is an object representing the eventual completion or failure of an asynchronous operation.
+
+A `Promise` object represents a value that that may not be available but resolved at some time in future. It allows you to write asynchronous code in a more synchronous fashion.
+
+Essentially, promise is a returned object to which you attach callback, instead of passing callbacks into a function. The core idea behind promises is that, it represents the result of an asynchronous operation.
+
+Promise is in one of three different states.
+
+* Pending - Initial state of promise.
+* Resolved - State representing a successful operation.
+* Rejected - The state representing failed operation.
+
+#### Syntax
+``` javascript
+ new Promise( /* executor */ function(resolve, reject) { ... } );
+``` 
+Example:
+``` javascript
+let promise = new Promise(function(resolve, reject) {
+    //executor
+})
+```
+The function passed to `Promise` constructor is called executor. When promise is created the executor executes automatically. The `resolve` and `reject` functions are called when the promise resolve or reject, respectively. 
+
+<div class="row">
+    <img class="responsive-img col l10 offset-l1 m10 offset-m1 s12" src="/images/promiseAsyncJS/promise-resolve-reject.png">
+</div>
+
+Initally the promise is in __pending__ state. Executor initiates some async work, once that completes it either calls `resolve` to __resolve__ the promise or `reject` if an error occurred. 
+
+> A promise is said to be __settled__ if it is either fulfilled or rejected, but not pending.
+
+#### Creating a promise
