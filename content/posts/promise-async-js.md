@@ -408,12 +408,14 @@ p.catch(() => {
 p.finally(() => {
     console.log(`Finally`)
 })
-
+```
+```
 Ouput: 
 > "Error"
 > "Finally"
 ```
-> `Promis.finally()` is part of ECMAScript specification but not yet included in NodeJS. It is only a matter of time before it lands in Node.js.
+
+> `Promise.finally()` is part of ECMAScript specification but not yet included in NodeJS. It is only a matter of time before it lands in Node.js.
 >
 > Further read:
 > 
