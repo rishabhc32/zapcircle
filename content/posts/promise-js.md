@@ -1,6 +1,6 @@
 ---
 title: "Promises in JS"
-date: 2018-07-05T00:12:17+05:30
+date: 2018-07-07T00:12:17+05:30
 draft: false
 author: "RC"
 cover_image: /images/promiseAsyncJS/cover.jpeg
