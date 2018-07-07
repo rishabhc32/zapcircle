@@ -8,7 +8,7 @@ cover_image: /images/promiseAsyncJS/cover.jpeg
 See the pyramid shape and all the `})` at the end? This is affectionately known as __callback hell__. The cause of callback hell is when people try to write JavaScript in a way where execution happens visually from top to bottom.
 <!--more-->
 
-Asynchronous JavaScript uses callbacks, nesting of callbacks results in __callback hell__. This leads to code, very hard to read and maintain.
+Asynchronous JavaScript uses callbacks, nesting of callbacks results in __callback hell__. This leads to a code, very hard to read and maintain.
 ``` javascript
 users.get(5, function(err, data){
     messges.get(data.userId, function(err, data){
@@ -82,7 +82,7 @@ In this case, the image may take a very long time to download but our program is
 
 <br>
 ### Pyramid of Doom
-When a programmer accustomed to writing synchronous code, writes asynchronous in JavaScript, it leads to callback hell.
+When a programmer accustomed to writing synchronous code, writes asynchronous code in JavaScript, it leads to callback hell.
 
 Nesting of callback is called __callback hell__.
 <div class="row">
@@ -127,7 +127,7 @@ As calls become more nested, the code becomes deeper and increasingly more diffi
 
 A `Promise` object represents a value that may not be available but resolved at some time in future. It allows you to write asynchronous code in a more synchronous fashion.
 
-Essentially, a promise is a returned object to which you attach callback, instead of passing callbacks into a function. The core idea behind promises is that it represents the result of an asynchronous operation.
+Essentially, a promise is a returned object to which you attach callback, instead of passing callback as a function parameter. The core idea behind promises is that it represents the result of an asynchronous operation.
 
 Promise is in one of three different states.
 
@@ -157,7 +157,7 @@ Initially, the promise is in __pending__ state. Executor initiates some async wo
     <img class="responsive-img col l10 offset-l1 m10 offset-m1 s12" src="/images/promiseAsyncJS/promise-settled.png">
 </div>
 
-> A promise is said to be __settled__ if it is either fulfilled or rejected, but not pending.
+A promise is said to be __settled__ if it is either fulfilled or rejected, but not pending.
 
 #### Creating a promise
 `Promise` object is created using the `new` keyword and promise constructor. This constructor takes an 'executor function' as an argument. This function should have two parameters, first of these a `resolve` function. The second, a `reject` function.
@@ -340,6 +340,7 @@ For example, we can fetch an array of URLs in the following way:
 const fetch = require('node-fetch')
 
 let UserNames = ['rishabhc32', 'mittalprince', 'geekychaser']
+
 let req = UserNames.map(name => fetch(`https://api.github.com/users/${name}`))
 // 'fetch' returns a 'Promise<response>' for URL passed in argument
 
