@@ -187,3 +187,8 @@ let another_response = async function() {
 <div class="row">
     <img class="responsive-img" src="/images/async-await/example-output.png">
 </div>
+
+<br>
+### Further reading
+* [MDN async/await example](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function#Simple_example)
+* [MDN async function expression] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/async_function)
