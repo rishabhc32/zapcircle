@@ -448,4 +448,8 @@ Output:
 
 <br>
 ### Next up
-Async/await in JavaScript.
+[Async/await in JavaScript](https://zapcircle.net/posts/async-await-js/).
+
+<br>
+##### Update -- 9 July
+[Async/await in JavaScript](https://zapcircle.net/posts/async-await-js/) is up.
