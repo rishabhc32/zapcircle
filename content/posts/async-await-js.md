@@ -98,3 +98,30 @@ f()
 > `Await` won't work in top-level code. It can also be used inside an `async function`.
 
 #### Error Handling
+If promise if fulfilled then await returns its result. But in case of rejection it `throws` an error. We can use simple `try...catch ` statement to `catch` the error.
+
+``` javascript
+var f = async function() {
+  try {
+    let v = await Promise.reject(new Error("Invalid Statement"))
+  } catch(err) {
+    console.log(err.message)
+  }
+}()
+
+// Output: "Invalid Statement"
+```
+
+<br>
+Handling rejected `Promsie` without try block.
+``` javascript
+var f = async function() {
+  let result = await Promise.reject(new Error("Invalid Statement"))
+}
+
+f().catch(err => {
+  console.log(err.message)
+})
+
+// Output: "Invalid Statement"
+```
