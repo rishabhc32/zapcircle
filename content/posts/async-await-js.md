@@ -5,11 +5,11 @@ draft: true
 author: "RC"
 cover_image: /images/async-await/cover.png
 ---
-ECMAScript 2017 brought in syntactic sugar on top of `Promises` in JavaScript in form of `async` and `await`. Async/await provides a special syntax to work with promises in a more comfortable fashion. They  allow us to write asynchronous Promise-based code in synchronous manner.
+ECMAScript 2017 brought in syntactic sugar on top of `Promises` in JavaScript in form of `async` and `await`. Async/await provides a special syntax to work with promises in a more comfortable fashion. They  allow us to write asynchronous Promise-based code in a synchronous manner.
 
 <!--more-->
 
-Before proceeing with __aysnc/await__ you need to understand __Promises__. You can head over to [Promises in JS](https://zapcircle.net/posts/promise-js/) article to read and learn about promises.
+Before proceeding with __async/await__ you need to understand __Promises__. You can head over to [Promises in JS](https://zapcircle.net/posts/promise-js/) article to read and learn about promises.
 
 ### Async functions
 > The async function declaration defines an asynchronous function. An asynchronous function is a function which operates asynchronously via the event loop.
@@ -20,7 +20,7 @@ async function f() {
     // function-body
 }
 ```
-An "async" function always returns a promise. If returned value is `non-promise` then JavaScript wraps it in an implicit `Promise`.
+An "async" function always returns a promise. If the returned value is `non-promise` then JavaScript wraps it in an implicit `Promise`.
 
 Example:
 ``` javascript
@@ -34,7 +34,7 @@ f().then(result => {
 
 // Output: 1
 ```
-> `Async` function returns a `Promise` which will be resolved with the value returned by the async function, or rejected with an uncaught exception thrown from within the async function.
+> `Async` function returns a `Promise` which will be resolved with the value returned by the async function or rejected with an uncaught exception thrown from within the async function.
 
 <br>
 ### Await
@@ -43,7 +43,7 @@ The `await` operator is used to wait for a `Promise`. It can only be used inside
 ``` javascript
 let value = await promise
 ```
-The `await` expression causes `async` function to pause execution until the `Promise` is settled.  
+The `await` expression causes the `async` function to pause execution until the `Promise` is settled.  
 The value of `await` expression is that of resolved promise. If `Promise` is rejected, await `throws` the rejected value.
 
 Example from MDN:
@@ -58,7 +58,7 @@ function resolveAfter2Seconds(x) {
 }
 
 async function f1() {
-  var x = await resolveAfter2Seconds(10); //wait till promsie is resolved 
+  var x = await resolveAfter2Seconds(10); //wait till promise is resolved 
   console.log(x); // 10
 }
 f1();
@@ -66,9 +66,9 @@ f1();
 // Prints '10' after 2 seconds
 {{< /highlight >}}
 
-The function `f1` execution pauses at __line 10__ and resumes when the promise is settled. The variable `x` has result of resolved promise that is, `10`.
+The function `f1` execution pauses at __line 10__ and resumes when the promise is settled. The variable `x` has the result of the resolved promise that is, `10`.
 
-`Await` is a more polished syntax of getting promsie result as compared to `Promise.then`. We can chain promises more elegantly with `await` than `Promise.then()`.
+`Await` is a more polished syntax of getting promise result as compared to `Promise.then`. We can chain promises more elegantly with `await` than `Promise.then()`.
 
 Insted of this:
 ``` javascript
@@ -98,7 +98,7 @@ f()
 > `Await` won't work in top-level code. It can also be used inside an `async function`.
 
 #### Error Handling
-If promise if fulfilled then await returns its result. But in case of rejection it `throws` an error. We can use simple `try...catch ` statement to `catch` the error.
+If a promise is fulfilled then await returns its result. But in the case of rejection, it `throws` an error. We can use simple `try...catch ` statement to `catch` the error.
 
 ``` javascript
 var f = async function() {
@@ -113,7 +113,7 @@ var f = async function() {
 ```
 
 <br>
-Handling rejected `Promsie` without try block.
+Handling rejected `Promise` without try block.
 ``` javascript
 var f = async function() {
   let result = await Promise.reject(new Error("Invalid Statement"))
@@ -128,7 +128,7 @@ f().catch(err => {
 ```
 <br>
 ### Example
-__Callbacks__ are not interchangeable with __Promises__. This means that callback based APIs cannot be used as `Promises`.  
+__Callbacks__ are not interchangeable with __Promises__. This means that callback-based APIs cannot be used as `Promises`.  
 
 But we can wrap a library using callback-based API inside a `Promise`.
 
