@@ -25,11 +25,11 @@ An "async" function always returns a promise. If the returned value is `non-prom
 Example:
 ``` javascript
 async function f() {
-  return 1;
+    return 1;
 }
 
 f().then(result => {
-  console.log(result)
+    console.log(result)
 })
 
 // Output: 1
