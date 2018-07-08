@@ -38,3 +38,32 @@ f().then(result => {
 
 <br>
 ### Await
+The `await` operator is used to wait for a `Promise`. It can only be used inside an `async` function.
+
+``` javascript
+let value = await promise
+```
+The `await` expression causes `async` function to pause execution until the `Promise` is settled.  
+The value of `await` expression is that of resolved promise. If `Promise` is rejected, await `throws` the rejected value.
+
+Example from MDN:
+
+{{< highlight javascript "linenos=table, title=await">}}
+function resolveAfter2Seconds(x) { 
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(x)
+    }, 2000)
+  })
+}
+
+async function f1() {
+  var x = await resolveAfter2Seconds(10); //wait till promsie is resolved 
+  console.log(x); // 10
+}
+f1();
+
+// Prints '10' after 2 seconds
+{{< /highlight >}}
+
+The function `f1` execution pauses at __line 10__ and resumes when the promise is settled. The variable `x` has result of resolved promise that is, `10`.
