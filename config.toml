@@ -12,7 +12,7 @@ pygmentsUseClassic = false
 
 copyright = "© 2018 Zap"
 
-paginate = 3
+paginate = 5
 paginatePath = "page"
 
 [menu]
