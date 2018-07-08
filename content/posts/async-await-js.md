@@ -67,3 +67,34 @@ f1();
 {{< /highlight >}}
 
 The function `f1` execution pauses at __line 10__ and resumes when the promise is settled. The variable `x` has result of resolved promise that is, `10`.
+
+`Await` is a more polished syntax of getting promsie result as compared to `Promise.then`. We can chain promises more elegantly with `await` than `Promise.then()`.
+
+Insted of this:
+``` javascript
+doAsync1.then(function(result) {
+  return doAsync2(result)
+})
+.then(function(result) {
+  return doAsync3(result)
+})
+.then(function(result) {
+  console.log('Got the final result')
+})
+.catch(failureCallback);
+```
+
+We can do this:
+``` javascript
+async function f() {
+    let v1 = await doAsync1()
+    let v2 = await doAsync2(v1)
+    let v3 = await doAsync3(v2)
+
+    console.log('Got the final result')
+}
+f()
+```
+> `Await` won't work in top-level code. It can also be used inside an `async function`.
+
+#### Error Handling
