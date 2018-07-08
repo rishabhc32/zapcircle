@@ -118,6 +118,7 @@ Handling rejected `Promsie` without try block.
 var f = async function() {
   let result = await Promise.reject(new Error("Invalid Statement"))
 }
+// result will be undefined if the promise is rejected
 
 f().catch(err => {
   console.log(err.message)
@@ -125,3 +126,64 @@ f().catch(err => {
 
 // Output: "Invalid Statement"
 ```
+<br>
+### Example
+__Callbacks__ are not interchangeable with __Promises__. This means that callback based APIs cannot be used as `Promises`.  
+
+But we can wrap a library using callback-based API inside a `Promise`.
+
+Example:
+``` javascript
+const request = require('request')
+
+function get_response() {
+    return new Promise((resolve, reject) => {
+        request.get(options, (err, res, body) => {
+            if(err) 
+                reject(err)
+            else
+                resolve(JSON.parse(body))
+        })
+    })
+}
+```
+`request` library uses callbacks. Here we wrap it inside a function returning `Promsie`. The function is then responsible for calling resolve when it’s done or reject if there are errors.
+
+Now we can use `.then()` or `await` on the returned `Promise`.
+``` javascript
+var options = {
+    url: 'https://api.github.com/users/rishabhc32',
+    headers: {
+        'User-Agent': 'request'
+    }
+}
+
+get_response()
+.then((result) => {
+    console.log(result)
+})
+.catch((err) => {
+    console.log('Error occured')
+})
+```
+
+``` javascript
+let another_response = async function() {
+    options.url = 'https://api.github.com/users/mittalprince'
+
+    let result = await get_response()
+    console.log(`login id: ${result.login} \nid: ${result.id}`)
+
+    options.url = 'malformed-url'
+    
+    try {
+        let result = await get_response()
+    } catch(err) {
+        console.log(`Error: ${err.message}`)
+    }
+ }()  
+```
+
+<div class="row">
+    <img class="responsive-img" src="/images/async-await/example-output.png">
+</div>
