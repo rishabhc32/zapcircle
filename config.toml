@@ -26,6 +26,9 @@ paginatePath = "page"
     name = "About"
     weight = 2
 
+[permalinks]
+  posts = "/:filename/"
+
 [params]
     url1 = "https://github.com/rishabhc32"
     name1 = "RC"
