@@ -3,6 +3,8 @@ theme = "material"
 disqusShortname = "zapcircle"
 baseUrl = "/"
 
+enableEmoji = true
+
 pygmentsStyle = "manni"
 pygmentsCodefences = true
 pygmentsCodefencesGuessSyntax = true
