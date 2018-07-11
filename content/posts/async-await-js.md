@@ -4,6 +4,8 @@ date: 2018-07-09T01:37:59+05:30
 draft: false
 author: "RC"
 cover_image: /images/async-await/cover.png
+aliases:
+    - /posts/async-await-js/
 ---
 ECMAScript 2017 brought in syntactic sugar on top of `Promises` in JavaScript in form of `async` and `await`. Async/await provides a special syntax to work with promises in a more comfortable fashion. They  allow us to write asynchronous Promise-based code in a synchronous manner.
 

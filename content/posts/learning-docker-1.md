@@ -4,6 +4,8 @@ date: 2018-06-25T10:55:36+05:30
 draft: false
 author: "RC"
 cover_image: /images/docker1/docker-banner.png
+aliases:
+    - /posts/learning-docker-1/
 ---
 Docker is a platform for developers to develop, deploy, and run applications with containers. Deployment of applications using linux containers is called _containerization_. Containers allow developers to pack up an application with all its libraries and dependencies, allowing them to be portable among any system running Linux.
 <!--more-->

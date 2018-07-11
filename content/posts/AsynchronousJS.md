@@ -4,6 +4,8 @@ date: 2018-07-10T16:04:49+05:30
 draft: false
 author: "Rishabh Kr Bothra"
 cover_image: "/images/asyncJS/Js.png"
+aliases:
+    - /posts/asynchronousjs/
 ---
 
 
