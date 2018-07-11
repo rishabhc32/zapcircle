@@ -77,7 +77,7 @@ Fetching data from a json file using AJAX request:
 **output**
 
 <div class="row">
-        <img class="responsive-img col" src="/images/asyncJS/Async.png">
+        <img class="responsive-img col" src="/images/asyncJS/Async-output.png">
     </div>
 
 
