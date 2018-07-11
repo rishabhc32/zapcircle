@@ -1,7 +1,7 @@
 title = "Zap!"
 theme = "material"
 disqusShortname = "zapcircle"
-baseUrl = "https://hardcore-volhard-394707.netlify.com/"
+baseUrl = "/"
 
 pygmentsStyle = "manni"
 pygmentsCodefences = true
