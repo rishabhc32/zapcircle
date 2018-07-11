@@ -25,7 +25,7 @@ next file is fetched and logged. What if the file1 is huge file and lets say
 take **10sec** to be fetched then this become blocking i/o and decreases UX.  
  So to get rid of this situation we can perform the same task **asynchronously** 
  
- ```ecmascript 6
+ ```javascript
 readAsync(file_loc,(test)=>{
 			console.log(test);	
 			});
@@ -331,7 +331,7 @@ The `next()` method also accepts a value which can be used to modify the
         <img class="responsive-img col" src="/images/asyncJS/pro+gene.png">
     </div>
  
- There is no opposition between these two techniques. They coexist 
+ There is no opposition between these two techniques. They exist 
  together complementing each other nicely. Promises resolves the 
  callback hell problem but even in promises there are callbacks and
  if the code is huge it becomes difficult to debug an issue. So we want 
