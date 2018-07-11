@@ -27,7 +27,7 @@ next file is fetched and logged. What if the file1 is huge file and lets say
 take **10sec** to be fetched then this become blocking i/o and decreases UX.  
  So to get rid of this situation we can perform the same task **asynchronously** 
  
- ```javascript
+ ```ecmascript 6
 readAsync(file_loc,(test)=>{
 			console.log(test);	
 			});
