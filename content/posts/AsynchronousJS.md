@@ -11,8 +11,8 @@ aliases:
 
 
 Javascript code runs on a single thread and hence should be synchronous 
-in nature. synchronous code waits for one action to complete before moving
- on to next task. But even after JS is considered as single threaded 
+in nature. Synchronous code waits for one action to complete before moving
+ on to next task. But even though JS is considered as single threaded 
  we are able to perform tasks parallely **HOW?**  
 <!--more-->
 
@@ -22,10 +22,10 @@ var test = readSync(file_loc);
 		var test2 = readSync(file_loc2);
 		console.log(test2);
 ```
-This task is done synchronously first file is fetched and test is logged then  
+This task is done synchronously as first file is fetched and test is logged then  
 next file is fetched and logged. What if the file1 is huge file and lets say  
 take **10sec** to be fetched then this become blocking i/o and decreases UX.  
- So to get rid of this situation we can do same task **asynchronously** 
+ So to get rid of this situation we can perform the same task **asynchronously** 
  
  ```javascript
 readAsync(file_loc,(test)=>{
@@ -90,9 +90,9 @@ is being printed.
 
 **AJAX** : Asynchronous JavaScript And XML  
  Communicate with server by making http request and retrieves data from server
- No without reloading the page which we can use in our code. XML refers to as
+ without reloading the page which we can further use that data in our code. XML refers to as
  the data which we try to fetch , we can also use JSON instead of XML.
- Consider google maps we are able to fetch different locations without
+ Consider google maps as example, we are able to fetch different locations without
  refreshing the page,thats how AJAX is advantageous. 
 
 
@@ -214,7 +214,7 @@ declared outside which keeps the code tidy and readable.
 Output remains the same :relieved:
 
 ### Promises
-> Promise is an object which showes a particular task has been completed 
+> Promise is an object which shows a particular task has been completed 
 or not(i.e. state of a particular task).  
 
 A promise may be in one of 3 possible states:
@@ -333,13 +333,13 @@ The `next()` method also accepts a value which can be used to modify the
         <img class="responsive-img col" src="/images/asyncJS/pro+gene.png">
     </div>
  
- There is no opposition between these two techniques. They coexist 
+ There is no opposition between these two techniques. They exist 
  together complementing each other nicely. Promises resolves the 
  callback hell problem but even in promises there are callbacks and
  if the code is huge it becomes difficult to debug an issue. So we want 
  to write *asynchronous* code in *synchronous* manner, Here comes the 
  **generators** which gives us power to write asynchronous code which
- seems to synchronous using promises, this combined concept is called 
+ seems to be synchronous using promises, this combined concept is called 
  **Async/Await**  
  
 ## What is the best way among all?
@@ -352,7 +352,7 @@ The `next()` method also accepts a value which can be used to modify the
  Callbacks is the fastest solution possible at this time
   (performance of native promises are not soo good). Promises with 
   generators give you opportunity to write asynchronous code in
-   synchronous fashion. But for now they much slower then simple
+   synchronous fashion. But for now they are much slower than simple
     callbacks.
     
 ### Further Readings  
