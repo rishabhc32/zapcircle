@@ -28,6 +28,13 @@ All of the code from this article is available for download on [GitHub](https://
 
 ### Creating the Project
 
+Our Project structure and dependencies ``` (package.json) ``` will look like :
+
+<div class="row">
+        <img class="responsive-img col s10" src="/images/passport/project_structure.png">
+    </div>
+
+
 Once all the prerequisites software is set up, we can start our project. First create the folder for app and open the terminal and write the following command for node app.
 
 ```
