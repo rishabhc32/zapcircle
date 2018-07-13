@@ -4,6 +4,8 @@ date: 2018-07-07T00:12:17+05:30
 draft: false
 author: "RC"
 cover_image: /images/promiseAsyncJS/cover.jpeg
+aliases:
+    - /posts/promise-js/
 ---
 See the pyramid shape and all the `})` at the end? This is affectionately known as __callback hell__. The cause of callback hell is when people try to write JavaScript in a way where execution happens visually from top to bottom.
 <!--more-->
