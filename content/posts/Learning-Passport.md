@@ -407,7 +407,7 @@ Finally we have come to the last portion of code! Now add the following code in 
 	});
 
 ```
-Let's understand what we have done in users.js file. First we require the passport-local Strategy and database model then we handle the post request for users/register path, in this function we first check whether user is registered with same username or not. If not then we save the user in the database and redirect the login page otherewise redirect register.handlebars.
+Let's understand what we have done in ``` users.js ``` file. First we require the passport-local Strategy and database model then we handle the post request for users/register path, in this function we first check whether user is registered with same username or not. If not then we save the user in the database and redirect the login page otherewise redirect register.handlebars.
 
 Then we tell the passport to use an instance of the Local-Strategy which we required. Then we use the command to find the user in the database with same credentials(username and password). If record username find and password matches, then above code returns the user otherwise false.
 
