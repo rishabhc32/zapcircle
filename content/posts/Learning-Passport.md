@@ -4,8 +4,6 @@ date: 2018-07-13T10:00:49+05:30
 draft: false
 author: "Prince Mittal"
 cover_image: "/images/passport/passport.png"
-aliases:
-    - /posts/Learning-Passport/
 ---
 
 ### What is Passport.js? 
