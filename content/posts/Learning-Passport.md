@@ -1,5 +1,5 @@
 ---
-title: "Authenticating Node.js Applications using Passport"
+title: "Authenticate Node.js Applications using Passport"
 date: 2018-07-13T10:00:49+05:30
 draft: false
 author: "Prince Mittal"
