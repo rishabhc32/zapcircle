@@ -1,7 +1,8 @@
 title = "Zap!"
 theme = "material"
-disqusShortname = "zapcircle"
 baseUrl = "/"
+
+disqusShortname = "zapcircle"
 
 enableEmoji = true
 
