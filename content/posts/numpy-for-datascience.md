@@ -4,10 +4,14 @@ date: 2018-07-14T10:55:36+05:30
 draft: false
 author: "Rohit"
 cover_image: /images/numpyfordatascience/Numpy-cover.png
-aliases:
-    - /posts/numpy-for-datascience/
 ---
+<<<<<<< HEAD
 NumPy is a package for scientific computing in Python it provides a multidimensional array object for fast operations on arrays such as mathematical, logical, shape manipulation, sorting,selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations and much more
+=======
+NumPy is a package for scientific computing in Python it provides a multidimensional array object for fast operations on arrays such as mathematical,logical,shape manipulation,sorting,selecting,I/O,discrete Fourier transforms,basic linear algebra,basic statistical operations and much more.
+
+<!--more-->
+>>>>>>> acc98ac739e5a76e041d9bea1f5e3dd1c22c357a
 
 We have multidimensional lists in Python then Why NumPy?
 
