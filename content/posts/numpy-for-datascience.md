@@ -5,13 +5,8 @@ draft: false
 author: "Rohit"
 cover_image: /images/numpyfordatascience/Numpy-cover.png
 ---
-<<<<<<< HEAD
-NumPy is a package for scientific computing in Python it provides a multidimensional array object for fast operations on arrays such as mathematical, logical, shape manipulation, sorting,selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations and much more
-=======
-NumPy is a package for scientific computing in Python it provides a multidimensional array object for fast operations on arrays such as mathematical,logical,shape manipulation,sorting,selecting,I/O,discrete Fourier transforms,basic linear algebra,basic statistical operations and much more.
 
-<!--more-->
->>>>>>> acc98ac739e5a76e041d9bea1f5e3dd1c22c357a
+NumPy is a package for scientific computing in Python it provides a multidimensional array object for fast operations on arrays such as mathematical, logical, shape manipulation, sorting,selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations and much more.
 
 We have multidimensional lists in Python then Why NumPy?
 
@@ -28,7 +23,7 @@ We have multidimensional lists in Python then Why NumPy?
 #### Vectorization and Broadcasting
 
 Vectorization is a technique of writing code without any explicit for-loops and indexing.
-When we want to multiply two arrays element wise we generally do:-
+When we want to multiply two arrays element wise we generally do :
 ```python
 >>> a = [[1,2,3],[4,5,6],[1,2,3]]
 >>> b = [[3,2,1],[2,3,1],[1,2,3]]
@@ -52,7 +47,7 @@ array([[ 3,  4,  3],
 Easy?
 
 Broadcasting refers to implicit element wise operations(In simple terms).
-NumPy operations generally are performed element wise. To perform element wise operations array must be broadcasted or should be made of equal shapes. This conversion is done behind the scenes when you operate two array of unequal shapes. For eg:-
+NumPy operations generally are performed element wise. To perform element wise operations array must be broadcasted or should be made of equal shapes. This conversion is done behind the scenes when you operate two array of unequal shapes. For eg :
 ```python
 >>> a = np.array([1,2,3])
 >>> b = np.array([[3,2,1],[3,2,1]])
@@ -60,7 +55,7 @@ NumPy operations generally are performed element wise. To perform element wise o
 array([[3, 4, 3],
        [3, 4, 3]])
 ```
-For the above operation firstly 'a' i.e `[1,2,3]` was converted to `[[1,2,3],[1,2,3]]` then element wise operation took place between 'a' & 'b' .So,this example shows both Vectorization and Broadcasting.
+For the above operation firstly 'a' i.e `[1,2,3]` was converted to `[[1,2,3],[1,2,3]]` then element wise operation took place between 'a' & 'b' . So, this example shows both Vectorization and Broadcasting.
 
 #### Getting started
 
@@ -72,7 +67,7 @@ import numpy as np
 ```
 Here you import numpy module renamed as *np* .
 
-This is enough for a brief description of numpy.Now,let's get NumPy in action.
+This is enough for a brief description of numpy. Now, let's get NumPy in action.
 
 #### Basics of NumPy
 
@@ -160,7 +155,7 @@ array([[ 2,  3,  4],
        [ 5,  6,  7],
        [ 9, 10, 11]])
 ``` 
-A different way of slicing is `arr[start:stop:step]`.if you write `arr[1:10:2]` this means starting from index 1 to index 9 taking 2 as a step so to display indexes 1,3,5,7,9.
+A different way of slicing is `arr[start:stop:step]`. If you write `arr[1:10:2]` this means starting from index 1 to index 9 taking 2 as a step so to display indexes 1,3,5,7,9.
 ```python
 >>> arr
 array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
@@ -177,7 +172,7 @@ array([ 5,  6,  7,  8,  9, 10])
 
 ##### Operations
 
-NumPy provides various mathematical,logical,statistical operations with efficiency and speed. Some are listed below:-
+NumPy provides various mathematical, logical, statistical operations with efficiency and speed. Some are listed below :
 ```python
 >>> array_1
 array([[1, 2, 3],
@@ -300,7 +295,7 @@ array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 ##### Some Other Operations
 
-After a quick basic ,these are some more NumPy operations that are required for getting into DataScience.
+After a quick basic, these are some more NumPy operations that are required for getting into DataScience.
 ```python
 >>> array_1
 array([1, 2, 3, 4, 5])
@@ -404,8 +399,7 @@ array([[1, 2, 3],
 ```
 <br/>
 
-12. To return equispaced elements between a range `np.linspace(start,end,elements)` here _start_ and _end_ is the range and  
-_elements_ is the number of elements required. 
+12. To return equispaced elements between a range `np.linspace(start,end,elements)` here _start_ and _end_ is the range and _elements_ is the number of elements required. 
 ```python
 >>> np.linspace(10,30,10)
 array([ 10.        ,  12.22222222,  14.44444444,  16.66666667,
@@ -446,7 +440,7 @@ array([[[ 0.,  0.,  0.],
 (1, 2, 3)
 ```
 
-Okay, that was the last one. Hope you understood everything but if not you can anytime search the numpy documentation [here](https://docs.scipy.org/doc/)
+Okay, that was the last one. Hope you understood everything but if not you can anytime search the numpy documentation [here](https://docs.scipy.org/doc/).
 
 #### Conclusion
 A warm up with numpy is done to get started with data science.
