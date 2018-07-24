@@ -8,7 +8,9 @@ cover_image: "/images/weather/cover.jpg"
 
 In this tutorial we will learn to build a simple website where users can type city name and get real-time weather data on screen using Nodejs, Express, OpenWeather.
 
-You may see the live demo of what we are building. Check out the [Live Demo](https://fathomless-hamlet-64169.herokuapp.com/). 
+<!--more-->
+
+You may see the live demo of what we are building. Check out the [Live Demo](https://fathomless-hamlet-64169.herokuapp.com/).  
 
 ### Prerequisites
 
