@@ -1,7 +1,7 @@
 ---
 title: "The weekend project -- gitfire"
 date: 2018-11-06T11:47:02+05:30
-draft: true
+draft: false
 author: "RC"
 cover_image: "/images/gitfire/cover1.jpeg"
 ---
