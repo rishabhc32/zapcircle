@@ -2,7 +2,7 @@
 title: "Setting up Emby server on Linux"
 date: 2018-11-09T08:46:09+05:30
 draft: false
-author: "Zap"
+author: "RC"
 cover_image: "/images/emby-server/cover.png"
 ---
 
