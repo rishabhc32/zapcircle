@@ -6,7 +6,7 @@ author: "Rohit, RC"
 cover_image: "/images/shape-detector/cover.png"
 ---
 
-This is a simple tool that predicts the drawing drawn on the canvas. It uses CNN to recognize drawings. The CNN in trained on [Quick, Draw! dataset](https://github.com/googlecreativelab/quickdraw-dataset). Trained model's weights are used to make inference on browser using `Tensorflow.js`. 
+This is a simple tool that predicts drawing drawn on the canvas. It uses CNN to recognize the drawings. The CNN in trained on [Quick, Draw! dataset](https://github.com/googlecreativelab/quickdraw-dataset). Trained model's weights are used to make inference on the browser using `Tensorflow.js`. 
 <!--more-->
 
 <div class="row">
@@ -17,7 +17,7 @@ You can find the demo [here](https://shape-detector.netlify.com/
 ) and source code [here](https://github.com/rishabhc32/shape-detector).
 
 ## Frontend
-The frontend is written in `Vue.js` using single-file components. The weights obtained from training part are used for inference via `Tensorflow.js`. The boilerplate for vue is generated via `vue-cli` using only the `babel` plugin. `Fabric.js` is used for canvas. It is a simple and powerful HTML `canvas` library. I am assuming that you have working knowledge of Vue.js.
+The frontend is written in `Vue.js` using single-file components. The weights obtained from the training part are used for inference via `Tensorflow.js`. The boilerplate for vue is generated via `vue-cli` using only the `babel` plugin. `Fabric.js` is used for canvas drawing and management. It is a simple and powerful HTML `canvas` library. I am assuming that you have a working knowledge of Vue.js.
 
 ```
 Root
@@ -35,10 +35,10 @@ We have the above components with hierarchy.
 
 <img class="responsive-img" src="/images/shape-detector/component.jpeg">
 
-> 'ClearButton' in image should have been 'CustomButton'.
+> 'ClearButton' in the image should have been 'CustomButton'.
 
-*  _'Title'_ and _'Desciption'_ are simple components and do not need explanation.  
-* The __CustomButton__ component emits an `ButtonClick` event when clicked. Text in the button can be set in the parent component using _buttonText_ prop.
+*  _'Title'_ and _'Description'_ are simple components and do not need explanation.  
+* The __CustomButton__ component emits a `ButtonClick` event when clicked. Text in the button can be set in the parent component using a _buttonText_ prop.
 * The __RangeSlider__ component emits an event `sliderInput` with slider's current value as the event's argument.
 
 <br>
@@ -60,6 +60,8 @@ new Vue({
 
 ```
 Model weights and class_name file(file which tells class name corresponding to index) are loaded when the _Root_ vue component is mounted. `Vue.prototype.$model` and `Vue.prototype.$classArray` are set so that they can be directly use in other components with `this.$model` and `this.$classArray`.
+
+Loading model weights when _'Root'_ vue component in mounted, results in slow loading of the web page and long wait before First Meaningful Paint. This can be avoided by loading them after all components have been rendered, but I am too lazy to change the code once it has been written.
 
 #### The Canvas component
 This is the component where most of the frontend logic lies. The canvas size is set to `300x300` pixels.  
@@ -109,7 +111,7 @@ preprocessImage: function(imgData) {
     })
 }
 ```
-In `preprocessImage` function we take the current image from the canvas, convert it to a tensor, resize and normalize it then finally add an dimension of 1 to get _batch shape_.
+In `preprocessImage` function, we take the current image from the canvas, convert it to a tensor, resize and normalize it. Finally, we add a dimension of 1 to get the _batch shape_.
 
 <br>
 
@@ -127,6 +129,15 @@ predictImage: function() {
 }
 ```
 `model.predict` returns the probabilities of each class. The prediction array(`pred`) has 100 elements. We show `classArray[maxIndex]` as the prediction to shape drawn in the canvas.
+
+<div class="row">
+    <div class="col s5">
+        <img class="responsive-img" src="/images/shape-detector/prediction_array.jpeg">
+    </div>
+    <div class="col s7">
+        <img class="responsive-img" src="/images/shape-detector/class_file.jpeg">
+    </div>
+</div>
 
 ## Testing
 <img class="responsive-img" src="/images/shape-detector/example_pants.jpeg">
