@@ -16,6 +16,11 @@ This is a simple tool that predicts drawing drawn on the canvas. It uses CNN to 
 You can find the demo [here](https://shape-detector.netlify.com/
 ) and source code [here](https://github.com/rishabhc32/shape-detector).
 
+
+## Training the CNN
+<!-- Write your part here, under this heading. Change the heading if you want. Remove this comment. -->
+
+
 ## Frontend
 The frontend is written in `Vue.js` using single-file components. The weights obtained from the training part are used for inference via `Tensorflow.js`. The boilerplate for vue is generated via `vue-cli` using only the `babel` plugin. `Fabric.js` is used for canvas drawing and management. It is a simple and powerful HTML `canvas` library. I am assuming that you have a working knowledge of Vue.js.
 
