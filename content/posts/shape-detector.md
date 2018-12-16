@@ -152,6 +152,9 @@ Prediction: shorts
 Prediction: smiley_face
 
 <img class="responsive-img" src="/images/shape-detector/example_inaccurate_smiley.jpeg ">
-Prediction: moon
+Prediction: moon  
+It is not always accurate.
 
-__It is not always accurate.__
+__That's all Fellas.__
+
+> _The code was written in 2 days after 15 days of controlled carving to write some code, so there might be slight hiccups in the program._ 
