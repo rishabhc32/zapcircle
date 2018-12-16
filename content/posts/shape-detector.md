@@ -157,4 +157,4 @@ It is not always accurate.
 
 __That's all Fellas.__
 
-> _The code was written in 2 days after 15 days of controlled carving to write some code, so there might be slight hiccups in the program._ 
+> _The code was written in 2 days after 15 days of controlled craving to write some code, so there might be slight hiccups in the program._ 
