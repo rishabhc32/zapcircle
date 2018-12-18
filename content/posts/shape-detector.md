@@ -17,8 +17,170 @@ You can find the demo [here](https://shape-detector.netlify.com/
 ) and source code [here](https://github.com/rishabhc32/shape-detector).
 
 
-## Training the CNN
-<!-- Write your part here, under this heading. Change the heading if you want. Remove this comment. -->
+## Model
+The Model will be using `Keras` with `Tensorflow` backend. The Model was built with `Sequential Api` of Keras followed which the Model and weights are converted into `Tensorflow.js`. Here are the steps that we would follow as to build our model :-
+<br>
+
+1. We will be working on only `100 classes` due to limited resources. Data on `Google cloud` includes `345 classes` So to fetch only 100 classes we will download a text file named `mini_classes.txt`. To do so linux user can directly download it via `wget` where others can directly go to the link and save the file with `Ctrl+s`.  
+
+    ```
+    wget -O mini_classes.txt https://raw.githubusercontent.com/rohit3463/shape-detector/master/public/mini_classes.txt
+
+    ```
+<br>
+
+    >  The mini_classes.txt file and the python file should be in the same directory.
+
+2. Importing the essential packages.
+
+    ```python
+    import os
+    import glob
+    import numpy as np
+    from tensorflow.keras import layers
+    import tensorflow as tf
+    from tensorflow import keras
+    import urllib.request
+    import tensorflowjs as tfjs
+    import shutil
+    ```
+<br>
+
+3. Downloading the Data from `GCP`.
+    
+    ```python
+    f = open("mini_classes.txt","r")
+    # And for reading use
+    classes = f.readlines()
+    f.close()
+
+    classes = [c.replace('\n','').replace(' ','_') for c in classes]
+    os.makedirs('data')
+
+    def download():
+
+        base = 'https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/'
+        for c in classes:
+            cls_url = c.replace('_', '%20')
+            path = base+cls_url+'.npy'
+            print(path)
+            urllib.request.urlretrieve(path, 'data/'+c+'.npy')
+
+    download()
+
+    def load_data(root, vfold_ratio = 0.2, max_items_per_class = 5000):
+        #all_files will contain list of all the files in data directory.
+        all_files = glob.glob(os.path.join(root,'*.npy'))
+        
+        #initialize the variables with empty arrays and list respectively.
+        x = np.empty([0, 784])
+        y = np.empty([0])
+        classes = []
+
+        #enumerate all the files then load each file in a numpy array following which it is concatenated to the x and y arrays.  
+        for idx, files in enumerate(all_files):
+            data = np.load(files)
+            data = data[0:max_items_per_class,:]
+            labels = np.full(data.shape[0],idx)
+            x = np.concatenate((x, data), axis = 0)
+            y = np.append(y,labels)
+    
+            class_name, ext = os.path.splitext(os.path.basename(files))
+            classes.append(class_name)
+    
+        data = None
+        labels = None
+        
+        #shuffle the data.
+        permutation = np.random.permutation(y.shape[0])
+  
+        x = x[permutation,:]
+        y = y[permutation]
+        
+        #prepare the testing and training set.
+        vfold_size = int(x.shape[0]/100*(vfold_ratio*100))
+  
+        x_test = x[:vfold_size,:]
+        y_test = y[:vfold_size]
+  
+        x_train = x[vfold_size:x.shape[0],:]
+        y_train = y[vfold_size:y.shape[0]]
+        
+        #return the test and train sets along with their classes
+        return x_test, y_test, x_train, y_train, classes
+
+    x_test, y_test, x_train, y_train, class_names = load_data('data')
+    num_classes = len(class_names)
+    image_size = 28
+    ```
+<br>
+
+4. Preprocessing is a very important step. It is the way we prepare the ingredients to be added to our dish by washing, cutting veggies. Our model takes training data of shape `[N, 28, 28, 1]`.
+
+    ```python
+    #reshaping the data into [N, 28, 28, 1]
+    x_train = x_train.reshape(x_train.shape[0], image_size, image_size, 1).astype('float32')
+    x_test = x_test.reshape(x_test.shape[0], image_size, image_size, 1).astype('float32')
+
+    #normalizing the data
+    x_train /= 255.0
+    x_test /= 255.0
+
+    #changing targets to categorical among 100 classes
+    y_train = keras.utils.to_categorical(y_train, num_classes)
+    y_test = keras.utils.to_categorical(y_test, num_classes)
+
+    ```
+<br>
+
+5. Finally, the wait is over. Now, we will build our sequential model using simple `CNN` along with some `Maxpool layers` to extract the best features.In the end, we will be using `fully connected layers` to shape the output into 100 classes. Here comes the model:-
+
+    ```python
+    model = keras.Sequential()
+    model.add(layers.Convolution2D(16, (3, 3), padding='same', input_shape=x_train.shape[1:], activation='relu'))
+    model.add(layers.MaxPooling2D(pool_size=(2, 2)))
+    model.add(layers.Convolution2D(32, (3, 3), padding='same', activation= 'relu'))
+    model.add(layers.MaxPooling2D(pool_size=(2, 2)))    
+    model.add(layers.Convolution2D(64, (3, 3), padding='same', activation= 'relu'))
+    model.add(layers.MaxPooling2D(pool_size =(2,2)))
+    model.add(layers.Flatten())
+    model.add(layers.Dense(128, activation='relu'))
+    model.add(layers.Dense(100, activation='softmax')) 
+
+    adam = tf.train.AdamOptimizer()
+    model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['top_k_categorical_accuracy'])
+    print(model.summary())
+    model.fit(x = x_train, y = y_train, validation_split=0.1, batch_size = 256, verbose=2, epochs=5)
+    ```
+<br>
+
+6. Evaluating the model describes how well our model performes. This is where test test will come in use.
+
+    ```python
+    score = model.evaluate(x_test, y_test, verbose=0)
+    print(score[1])
+    ```
+<br>
+
+
+7. Saving the model by importing into `tensorflow.js`.
+    ```python
+    #converting the model into tensorflow.js and saving into a folder named 'SavedModel'.
+    tfjs.converters.save_keras_model(model, './SavedModel')
+
+    #writting all the class_names into a text file.
+    with open('class_names.txt', 'w') as file_handler:
+    for item in class_names:
+        file_handler.write("{}\n".format(item))
+
+    #copying the class_names.txt file into our Model and then zipping it.
+    shutil.copy('class_names.txt', './SavedModel')
+    shutil.make_archive('Model', 'zip', 'SavedModel')
+    ```
+
+<br>
+
+That's it for the model. The model was actually trained on `Google Colab` where it took around `25-30 mins` to train the model. Now, proceeding to the frontend.
 
 
 ## Frontend
