@@ -1,7 +1,7 @@
 ---
 title: "Shape Detector"
-date: 2018-12-14T19:12:49+05:30
-draft: true
+date: 2018-12-18T16:25:17+05:30
+draft: false
 author: "Rohit, RC"
 cover_image: "/images/shape-detector/cover.png"
 ---
