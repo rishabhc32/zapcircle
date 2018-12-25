@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+{{ $truncate := default true .Site.Params.truncate }}
+{{ $render_cover := default false .Params.render_cover }}
+
+{{ if $render_cover }}
+    {{ (.Page.GetPage "display").Render "content" }}
+{{ else }}
+    {{ range .Paginator.Pages }}
+
+        {{ if $truncate }}
+            {{ .Render "summary" }}
+        {{ else }}
+            {{ .Render "content" }}
+        {{ end }}
+
+    {{ end }}
+{{ end }}
+
+
+{{ partial "paginator" . }}
+
+{{ end }}

@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+{{ $truncate := default true .Site.Params.truncate }}
+{{ range where .Paginator.Pages "Section" "!=" "100-days-of-code" }}
+
+    {{ if $truncate }}
+        {{ .Render "summary" }}
+    {{ else }}
+        {{ .Render "content" }}
+    {{ end }}
+
+{{ end }}
+
+{{ partial "paginator" . }}
+
+{{ end }}
