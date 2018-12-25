@@ -1,0 +1,3 @@
+---
+render_cover: true
+---
