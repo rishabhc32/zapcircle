@@ -58,3 +58,10 @@ code {
 figure>img {
     width: 100%;
 }
+
+/* List in nav menu */
+
+#dropdown-header-desktop-2 {
+    padding: 0px;
+    list-style-type: none;   
+}
