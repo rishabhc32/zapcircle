@@ -28,6 +28,38 @@ paginatePath = "page"
     url = "/about"
     name = "About"
     weight = 2
+  
+  [[menu.main]]
+    name = "100DaysOfCode"
+    identifier = "100dof"
+    weight = 3
+    
+    [[menu.main]]
+      url = "/100-days-of-code"
+      name = "100DaysOfCode"
+      parent = "100dof"
+      weight = 0
+    [[menu.main]]
+      url = "/100-days-of-code/rc"
+      name = "RC"
+      parent = "100dof"
+      weight = 1
+    [[menu.main]]
+      url = "/100-days-of-code/mittalprince"
+      name = "mittalprince"
+      parent = "100dof"
+      weight = 2
+    [[menu.main]]
+      url = "/100-days-of-code/geekychaser"
+      name = "geekychaser"
+      parent = "100dof"
+      weight = 3
+    [[menu.main]]
+      url = "/100-days-of-code/rohit"
+      name = "Rohit"
+      parent = "100dof"
+      weight = 4
+
 
 [permalinks]
   posts = "/:filename/"
