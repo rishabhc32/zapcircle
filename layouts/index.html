@@ -1,7 +1,9 @@
 {{ define "main" }}
 
+{{ $paginator := .Paginate (where .Pages "Section" "!=" "100-days-of-code" ) }}
 {{ $truncate := default true .Site.Params.truncate }}
-{{ range where .Paginator.Pages "Section" "!=" "100-days-of-code" }}
+
+{{ range $paginator.Pages }}
 
     {{ if $truncate }}
         {{ .Render "summary" }}
