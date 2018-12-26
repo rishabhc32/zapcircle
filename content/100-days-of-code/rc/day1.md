@@ -8,8 +8,7 @@ cover_image: "/images/100dof/rc/cover.png"
 
 Completed `React` introduction [tutorial](https://reactjs.org/tutorial/tutorial.html), building a tic-tac-toe app.
 
-<!--more-->
-
+d
 <div class="row">
     <img class="responsive-img col" src="/images/100dof/rc/day1.png">
 </div>
