@@ -61,7 +61,7 @@ figure>img {
 
 /* List in nav menu */
 
-#dropdown-header-desktop-2 {
+#dropdown-header-desktop-2, #dropdown-header-mobile-2 {
     padding: 0px;
     list-style-type: none;   
 }
