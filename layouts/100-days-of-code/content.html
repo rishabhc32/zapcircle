@@ -1,0 +1,33 @@
+<article class="max-width">
+    <!-- Title -->
+    <section class="row">
+        <div class="col s12 m10 offset-m1 l10 offset-l1">
+            <h2>{{ .Title }}</h2>
+        </div>
+    </section>
+
+    <!-- Figure -->
+    {{ with .Params.cover_image }}
+    <div class="row">
+        <div class="col s12 m12 l10 offset-l1">
+            <div class="article-image" style="background-image: url('{{ . | absURL }}');"></div>
+        </div>
+    </div>
+    {{ end }}
+
+    <!-- Content -->
+    <section class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2">
+            {{ partial "article-meta" . }}
+        </div>
+        <div class="col s12 m10 offset-m1 l8 offset-l2">
+            {{ .Content }}
+        </div>
+    </section>
+
+    <!-- Disqus -->
+    <section class="container">
+        {{ partial "disqus" . }}
+    </section>
+
+</article>
