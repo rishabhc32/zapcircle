@@ -35,6 +35,11 @@ paginatePath = "page"
     weight = 3
     
     [[menu.main]]
+      url = "/100-days-of-code"
+      name = "100DaysOfCode"
+      parent = "100dof"
+      weight = 0
+    [[menu.main]]
       url = "/100-days-of-code/rc"
       name = "RC"
       parent = "100dof"
