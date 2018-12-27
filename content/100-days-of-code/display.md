@@ -8,7 +8,7 @@ draft: false
 
 We have decided to code for at least an hour every day for next 100 days and make this a public commitment. We will update our progress every day on the following pages.
 
-* [RC](rc)
-* [mittalprince](mittalprince)
-* [geekychaser](geekychaser)
-* [Rohit](rohit)
+* [RC](/100-days-of-code/rc)
+* [mittalprince](/100-days-of-code/mittalprince)
+* [geekychaser](/100-days-of-code/geekychaser)
+* [Rohit](/100-days-of-code/rohit)
