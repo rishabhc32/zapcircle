@@ -12,15 +12,15 @@ I, Rohit Sethi swear to complete `#100DaysOfCode` to the best of my ability and 
 
 <br>
 
-### Task Completed
+#### Task Completed
 On Day 1, I did the following :-
 
 ```
-Trained a LSTM on Toxic comment classification and achieved a accuracy of 98.32% 
+Trained a LSTM on Toxic comment classification and achieved a validation accuracy of 98.32% 
 ```
 <br>
 
-### Learnings
+#### Learnings
 On Day 1, I learnt the following :-
 
 1. Tokenizing the Text corpus to feed into sequence models.
