@@ -32,3 +32,8 @@ On Day 7, I learnt the following :-
 <br>
 
 link to the work on Day 7 [here](https://github.com/rohit3463/-100DaysOfCode/blob/master/Day7/time_sequence.py) 
+
+<div class="row">
+    <img class="responsive-img col s6" src="/images/100dof/rohit/accuracy.png">
+    <img class="responsive-img col s6" src="/images/100dof/rohit/confusion_matrix.png">
+</div>
