@@ -2,7 +2,7 @@
 title: "Day6"
 date: 2018-12-30T22:39:06+05:30
 draft: false
-author: "Zap"
+author: "RC"
 cover_image: "/images/100dof/rc/day6.png"
 ---
 
