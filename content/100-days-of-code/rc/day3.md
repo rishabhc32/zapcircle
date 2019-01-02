@@ -1,5 +1,5 @@
 ---
-title: "Day3"
+title: "Day 3"
 date: 2018-12-27T23:32:49+05:30
 draft: false
 author: "RC"
