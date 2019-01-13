@@ -65,3 +65,120 @@ figure>img {
     padding: 0px;
     list-style-type: none;   
 }
+
+h6{
+    color:grey;
+}
+
+h5{
+    color:#3498db;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+    .fab{
+        margin-top: 8px;
+        font-size: 2em;
+    }
+
+    .far{
+        margin-top: 8px;
+        font-size:2em;
+    }
+}   
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+    .fab{
+        margin-top: 8px;
+        font-size: 1.8em;
+    }
+
+    .far{
+        margin-top: 8px;
+        font-size:1.8em;
+    }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  .fab{
+        margin-top: 8px;
+        font-size: 1.6em;
+    }
+
+    .far{
+        margin-top: 8px;
+        font-size:1.6em;
+    }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+    .fab{
+        margin-top: 8px;
+        font-size: 1.6em;
+    }
+
+    .far{
+        margin-top: 8px;
+        font-size:1.6em;
+    }
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+    .fab{
+        margin-top: 8px;
+        font-size: 1.4em;
+    }
+
+    .far{
+        margin-top: 8px;
+        font-size:1.4em;
+    }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+    .fab{
+        margin-top: 8px;
+        font-size: 1.2em;
+    }
+
+    .far{
+        margin-top: 8px;
+        font-size:1.2em;
+    }
+}
