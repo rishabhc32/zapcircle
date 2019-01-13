@@ -66,7 +66,7 @@ figure>img {
     list-style-type: none;   
 }
 
-a, h6{
+h6{
     color:grey;
 }
 
@@ -74,23 +74,6 @@ h5{
     color:#3498db;
 }
 
-/*@media only screen and (min-width: 320px) and (max-width: 700px) {
-
-   .far{
-    font-size: 1.2em;
-   }
-
-   .fab{
-    font-size: 1.2em;
-   }
-   .icons{
-    padding: 0 0.3rem !important;
-   }
-   .centre{
-    width: 2% !important; 
-   }
-}
-*/
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
@@ -107,16 +90,6 @@ h5{
         margin-top: 8px;
         font-size:2em;
     }
-    .centre{
-        width: 16.6666666667%;
-        margin-left: auto;
-        left: auto;
-        right: auto;
-    }
-    .icons{
-
-    }
-  
 }   
 
 /* 
@@ -135,16 +108,6 @@ h5{
         margin-top: 8px;
         font-size:1.8em;
     }
-    .centre{
-        width: 16.6666666667%;
-        margin-left: auto;
-        left: auto;
-        right: auto;
-    }
-    .icons{
-
-    }
-  
 }
 
 /* 
@@ -156,23 +119,13 @@ h5{
   
   .fab{
         margin-top: 8px;
-        font-size: 1.5em;
+        font-size: 1.6em;
     }
 
     .far{
         margin-top: 8px;
-        font-size:1.5em;
+        font-size:1.6em;
     }
-    .centre{
-        width: 16.6666666667%;
-        margin-left: auto;
-        left: auto;
-        right: auto;
-    }
-    .icons{
-
-    }
-  
 }
 
 /* 
@@ -184,21 +137,12 @@ h5{
   
     .fab{
         margin-top: 8px;
-        font-size: 1.4em;
+        font-size: 1.6em;
     }
 
     .far{
         margin-top: 8px;
-        font-size:1.4em;
-    }
-    .centre{
-        width: 16.6666666667%;
-        margin-left: auto;
-        left: auto;
-        right: auto;
-    }
-    .icons{
-
+        font-size:1.6em;
     }
   
 }
@@ -212,23 +156,13 @@ h5{
   
     .fab{
         margin-top: 8px;
-        font-size: 1.2em;
+        font-size: 1.4em;
     }
 
     .far{
         margin-top: 8px;
-        font-size:1.2em;
+        font-size:1.4em;
     }
-    .centre{
-        width: 5% !important;
-        margin-left: auto;
-        left: auto;
-        right: auto;
-    }
-    .icons{
-        padding: 0 0.5rem !important;
-    }
-  
 }
 
 /* 
@@ -247,16 +181,4 @@ h5{
         margin-top: 8px;
         font-size:1.2em;
     }
-    .centre{
-        width: 3% !important;
-        margin-left: auto;
-        left: auto;
-        right: auto;
-        
-    }
-    .icons{
-        padding: 0 0.2rem !important;
-    }
-  
 }
-
