@@ -45,7 +45,7 @@ In addition we'll be learning :-
 Styling.
 ```
 
-##### Scatter Plot
+#### Scatter Plot
 
 We'll be using `iris dataset` for practice.Steps remain the same as specified above :-
 
@@ -79,7 +79,7 @@ show(p)
 </div>
 <br>
 
-##### Histograms
+#### Histograms
 bokeh does not have a function defined to plot histograms but can be made with some intelligence using `quad`.We'll be using [dataset](https://github.com/rohit3463/-100DaysOfCode/blob/master/Day17-20/bokeh_app/data/flights.csv)
 
 ```python
@@ -105,7 +105,7 @@ show(p)
 </div>
 <br>
 
-##### Line charts
+#### Line charts
 Fortunetly, Bokeh has a line glyph and can be added easily.We'll use `iris dataset`.
 ```python
 import pandas as pd 
