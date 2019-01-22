@@ -4,8 +4,6 @@ date: 2019-01-19T10:55:36+05:30
 draft: false
 author: "Rohit"
 cover_image: /images/introtobokeh/bokeh.jpg
-aliases:
-    - /posts/Introduction-to-bokeh/
 ---
 Bokeh is an amazing tool for data visualization. If you are looking for a tool that makes your life easier with data visualization and gain you some praising for your work this is what you want. 
 <!--more-->
