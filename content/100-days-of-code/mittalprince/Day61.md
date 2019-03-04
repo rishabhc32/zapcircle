@@ -6,4 +6,4 @@ cover_image: "/images/100dof/cover.jpeg"
 draft: false
 ---
 
-Today I studied `MicroProcessor and MicroController` and some of `Computer Network` 
+Today I studied `MicroProcessor and MicroController` and some of `Computer Network`. 
