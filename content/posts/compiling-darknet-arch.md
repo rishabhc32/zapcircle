@@ -12,8 +12,6 @@ I and my friend Rohit were working on object detection for a project. So natural
 
 You have to compile Darknet to run YOLO. There were few hiccups that I faced while compiling Darknet on Arch with Nvidia GPU. I will detail out the procedure for the same.
 
-<!--more-->
-
 ### For CPU
 The procedure of running compiling Darknet and running YOLO on CPU is easy and is listed on its [website](https://pjreddie.com/darknet/yolo/).
 
