@@ -68,8 +68,9 @@ Seems a tough one, but it will look less complex if we look at the problem like:
         <img class="responsive-img col s6" src="/images/Googleortools/problem.png">
     </div>
 </div>
-
+<br>
 Now let's formulate in terms of some equations :-
+
 1. Here the motive of manufacturer is to obtain the quantities of `cloth A` and `cloth B`. So, let the quantities of `cloth A` and `cloth B` be **A** and **B** which are also called the **decision variables** for the problem.
 
 2. We have some requirements of materials for each type of cloth which inturn are bounded by the availabilty of that material. So, Next we shall define our constraints :-
