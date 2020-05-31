@@ -6,7 +6,7 @@ author: "Rohit"
 cover_image: /images/Googleortools/intro.png
 ---
 
-Today, I am going to introduce you to one of the amazing tools offered by google - Google OR-Tools. A great tool when it comes to optimizations under constarints.
+Today, I am going to introduce you to one of the amazing tools offered by google - Google OR-Tools. A great tool when it comes to optimizations under constraints.
 Google OR-Tools let you solve some complex optimization problems under great ease. If you have ever been stucked into a problem which requires you to find an optimal solutions to a given equation then you must check onto this amazing tool for yourself. Let's get started.
 
 <!--more-->
@@ -67,7 +67,7 @@ by solving the Linear programming problem.
 Seems a tough one, but it will look less complex if we look at the problem like:-
 <div class="row">
 	<div class ="card-image">
-        <img class="responsive-img col s6" src="/images/Googleortools/problem.png">
+        <img class="responsive-img col s12" src="/images/Googleortools/problem.png">
     </div>
 </div>
 <br>
