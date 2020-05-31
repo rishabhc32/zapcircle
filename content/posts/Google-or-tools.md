@@ -15,7 +15,8 @@ Google OR-Tools let you solve some complex optimization problems under great eas
 "OR-Tools is open source software for combinatorial optimization, 
 which seeks to find the best solution to a problem out of a very large set of possible solutions." - Google
 
-Some of the examples provided by google include :-k
+Some of the examples provided by google include :-
+
 1. Constraint Programming
 2. Vehicle Routing
 3. Linear or Mixed-Integer programming
@@ -26,15 +27,16 @@ For now, i am only familier with `Linear Programming`. So, I am going to discuss
 ### Linear Programming
 Linear Programming deals with the optimization (maximization or minimization) of linear functions subject to linear constraints.
 There are various methods used to solve a linear programming problem, mentioned below:-
+
 1. Graphical method
 2. Simplex method
 3. M-method or method of penalties
 4. Dual Simplex method.
 
-All the listed above are in order of increasing complexity and each of them was an improvement over the other.
-<br>
+All the listed above are in order of increasing complexity and each of them was an improvement over the other.<br>
 Here, **Simplex method**, devised in **1947** is the most used method but some problems have proved it to take exponential time. After this many researchers such as *Leonid Khachiyan* in 1947(weakly polynomial alogorithm), *Narendra karmarkar* in 1984(interior point method) have decreased the time complexity of algorithms.
 <br>
+
 > Note :- Interior point algorithms have proved efficient on very large linear programs.
 
 #### Formulation of the problem
