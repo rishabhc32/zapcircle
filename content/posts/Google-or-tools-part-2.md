@@ -48,11 +48,13 @@ Sounds easy right, for small graphs having 10-15 nodes it might be an easy task 
 
 
 To formulate such a problem we need to identify three things :-
+
 1. **Variables** :- These are the values we need to obtain as solution.
 2. **Domain** :- we need to define domain that is the range of values that each variable can take. In other words, these are called bounds.
 3. **Constraints** :- These are the inequalities that you need to satisfy while assigning values to a variable. A solution must obey all these inequalities.
 
 Let's formulate these for the problem statement above :-
+
 1. **Variables** :- Here variables are the colors we can assign to each node. So, each node shall have a variable for itself containing a value that indicates it color.
 2. **Domain** :- Domain is the set of colors from which we can assign a color to node in the graph. Here, we will take integers starting from **0 to K-1** where K is the number of colors, and each integer denotes a color.
 3. **Constarints** :- For the problem above, No two nodes having a edge between them can have the same color. So, we will define constraint for each edge in the graph. For example, if there exist a edge from node **N1** to node **N2** then the value of N1 can not be equal to value of N2.
