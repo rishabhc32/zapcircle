@@ -41,7 +41,7 @@ Sounds easy right, for small graphs having 10-15 nodes it might be an easy task 
 <br>
 <div class="row">
 	<div class ="card-image">
-        <img class="responsive-img col s12" src="/images/GoogleortoolsPart2/proccessed.png">
+        <img class="responsive-img col s12" src="/images/GoogleortoolsPart2/processed.png">
     </div>
 </div>
 <br>
@@ -182,7 +182,7 @@ and a picture,
 <br>
 <div class="row">
 	<div class ="card-image">
-        <img class="responsive-img col s12" src="/images/GoogleortoolsPart2/proccessed.png">
+        <img class="responsive-img col s12" src="/images/GoogleortoolsPart2/processed.png">
     </div>
 </div>
 <br>
