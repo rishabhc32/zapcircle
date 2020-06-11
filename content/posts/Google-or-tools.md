@@ -147,6 +147,18 @@ def LinearProgrammingSolver():
 # Driver Function call 
 LinearProgrammingSolver()
 ```
+
+### Output
+```
+Number of variables = 2
+Number of constraints = 3
+Solution:
+x =  176.47058823529403
+y =  58.82352941176477
+Optimal objective value = 1058.8235294117644
+```
+For code you can refer to my colab [notebook](https://github.com/rohit3463/Google-OR-Tools/blob/master/Linear_solver_diy.ipynb) on github
+
 I hope you understood how a linear programming problem is formulated and solved with this amazing tool provided by google. For more info you can always refer to documentation and tutorials by google.
 
 > Note :- The above example was taken from one of my favourite book named :- Higher Engineering Mathematics by Dr. B.S. Grewal.
