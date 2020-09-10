@@ -6,12 +6,14 @@ disqusShortname = "zapcircle"
 
 enableEmoji = true
 
-pygmentsStyle = "manni"
+pygmentsStyle = "tango"
 pygmentsCodefences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsUseClassic = false
+pygmentsOptions = ["linenos=1"]
 
-#languageCode = "en-us"
+languageCode = "en-us"
+defaultContentLanguage = "en"
 
 copyright = "© 2020 Zap"
 
