@@ -1,4 +1,8 @@
-$(".button-collapse").sideNav();
+$('.dropdown-trigger').dropdown();
+
+$(document).ready(function(){
+  $('.sidenav').sidenav();
+});
 
 ulElements = document.getElementsByTagName('ul');
 
