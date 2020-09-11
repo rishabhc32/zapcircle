@@ -6,7 +6,12 @@ body {
     flex-direction: column;
     font-weight: 300;
     font-family: 'Noto Sans', Roboto, sans-serif;
+    overflow-x: hidden;
 }
+
+pre, .highlight pre {
+    overflow: auto;
+ }
 
 strong {
     font-weight: bold;
@@ -19,6 +24,7 @@ main {
 code {
    font-family: 'Source Code Pro', monospace;
 }
+
 .max-width {
     max-width: 1280px;
     margin: 0 auto;
@@ -66,14 +72,22 @@ figure>img {
     list-style-type: none;   
 }
 
-#six{
+#six {
     color:grey;
 }
 
-#five{
+#five {
     color:#3498db;
 }
 
+
+.pagination {
+    padding-left: 0px;
+}
+
+.no-bullets {
+    list-style-type: none;
+}
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
