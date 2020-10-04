@@ -1,80 +1,147 @@
-title = "Zap!"
-theme = "material"
-baseUrl = "/"
-
-disqusShortname = "zapcircle"
-
-enableEmoji = true
-
-pygmentsStyle = "tango"
-pygmentsCodefences = true
-pygmentsCodefencesGuessSyntax = true
-pygmentsUseClassic = false
-pygmentsOptions = ["linenos=1"]
-
+######################## default configuration ####################
+baseURL = "http://examplesite.org/"
+title = "Bigspring Hugo"
+theme = "bigspring"
+languageName = "En"
 languageCode = "en-us"
-defaultContentLanguage = "en"
+# post pagination
+paginate = "10"
+# post excerpt
+summaryLength = "15"
+# disqus short name
+disqusShortname = "" # get your shortname form here : https://disqus.com
+# google analytics
+googleAnalytics = "" # example : UA-123-45
+# unsafe html
+[markup.goldmark.renderer]
+unsafe = true
 
-copyright = "© 2020 Zap"
+############################# Plugins ##############################
 
-paginate = 10
-paginatePath = "page"
+# CSS Plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/themify-icons/themify-icons.css"
+[[params.plugins.css]]
+link = "plugins/slick/slick.css"
 
-[menu]
-  [[menu.main]]
-    url = "/"
-    name = "Home"
-    weight = 1
-
-  [[menu.main]]
-    url = "/about"
-    name = "About"
-    weight = 2
-  
-  [[menu.main]]
-    name = "100DaysOfCode"
-    identifier = "100dof"
-    weight = 3
-    
-    [[menu.main]]
-      url = "/100-days-of-code"
-      name = "100DaysOfCode"
-      parent = "100dof"
-      weight = 0
-    [[menu.main]]
-      url = "/100-days-of-code/rc"
-      name = "RC"
-      parent = "100dof"
-      weight = 1
-    [[menu.main]]
-      url = "/100-days-of-code/mittalprince"
-      name = "mittalprince"
-      parent = "100dof"
-      weight = 2
-    [[menu.main]]
-      url = "/100-days-of-code/geekychaser"
-      name = "geekychaser"
-      parent = "100dof"
-      weight = 3
-    [[menu.main]]
-      url = "/100-days-of-code/rohit"
-      name = "Rohit"
-      parent = "100dof"
-      weight = 4
+# JS Plugins
+[[params.plugins.js]]
+link = "plugins/jQuery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/slick/slick.min.js"
 
 
-[permalinks]
-  posts = "/:filename/"
+############################## navigation ###############################
 
+# main menu
+[[menu.main]]
+name = "Blog"
+URL = "blog"
+weight = 1
+
+[[menu.main]]
+name = "Pricing"
+URL = "pricing"
+weight = 2
+
+[[menu.main]]
+name = "Contact"
+URL = "contact"
+weight = 3
+
+[[menu.main]]
+name = "FAQ"
+URL = "faq"
+weight = 4
+
+# company 
+[[menu.company]]
+name = "About Us"
+URL = "#"
+
+[[menu.company]]
+name = "Quick Start"
+URL = "#"
+
+[[menu.company]]
+name = "Pricing"
+URL = "pricing"
+
+
+# Product 
+[[menu.product]]
+name = "Pricing"
+URL = "pricing"
+
+[[menu.product]]
+name = "Platform"
+URL = "#"
+
+[[menu.product]]
+name = "Features"
+URL = "#"
+
+# Support 
+[[menu.support]]
+name = "Privacy Policy"
+URL = "privacy-policy"
+
+[[menu.support]]
+name = "Terms & Conditions"
+URL = "terms-conditions"
+
+[[menu.support]]
+name = "FAQ"
+URL = "faq"
+
+#################### default parameters ################################
 [params]
-    url1 = "https://github.com/rishabhc32"
-    name1 = "RC"
- 
-    url2 = "https://github.com/mittalprince"
-    name2 = "mittalprince"
+logo = "images/logo.png"
+logo_width = "200px"
+# Meta data
+description = "This is meta description"
+author = "Themefisher"
+# contact form action
+contact_form_action = "#" # contact form works with https://formspree.io
 
-    url3 = "https://github.com/geekychaser"
-    name3 = "geekychaser"
+########### footer content ##########
+footer_content = "Lorem ipsum dolor sit amet, consectetur elit. Consjat tristique eget amet, tempus eu at cttur."
+# copyright
+copyright = "Design By [Themefisher](https://themefisher.com/) Develop By [Gethugothemes](https://gethugothemes.com/)"
 
-    url4 = "https://github.com/rohit3463"
-    name4 = "Rohit"
+# Preloader
+[params.preloader]
+enable = false
+preloader = "" # use jpg, png, svg or gif format.
+
+# Navigation buttons
+[params.navigation_button]
+enable = true
+label = "Get Started"
+link = "contact"
+
+  
+############################# social site ########################
+[[params.social]]
+title = "facebook"
+icon = "ti-facebook" # themify icon : https://themify.me/themify-icons
+link = "#"
+
+[[params.social]]
+title = "twitter"
+icon = "ti-twitter-alt" # themify icon : https://themify.me/themify-icons
+link = "#"
+
+[[params.social]]
+title = "skype"
+icon = "ti-skype" # themify icon : https://themify.me/themify-icons
+link = "#"
+
+[[params.social]]
+title = "linkedin"
+icon = "ti-linkedin" # themify icon : https://themify.me/themify-icons
+link = "#"
