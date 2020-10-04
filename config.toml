@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "http://examplesite.org/"
+baseURL = "/"
 title = "Bigspring Hugo"
 theme = "bigspring"
 languageName = "En"
