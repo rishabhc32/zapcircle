@@ -15,7 +15,7 @@ pygmentsOptions = ["linenos=1"]
 languageCode = "en-us"
 defaultContentLanguage = "en"
 
-copyright = "© 2023 Zap"
+copyright = "© 2024 Zap"
 
 paginate = 10
 paginatePath = "page"
